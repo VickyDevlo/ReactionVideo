@@ -40,13 +40,13 @@ function WebCamera() {
 					className="app__videoFeed"
 				></video>
 			</div>
-			{/* <div className="app__input">
+			<div className="app__input">
 				{playing ? (
 					<button onClick={stopVideo}>Stop</button>
 				) : (
 					<button onClick={startVideo}>Start</button>
 				)}
-			</div> */}
+			</div>
 		</div>
 	);
 }

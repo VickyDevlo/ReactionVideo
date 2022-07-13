@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, ModalBody, ModalHeader, Button, Row } from "reactstrap";
 import RecordRTC from "recordrtc";
-
+import "./App.css"
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 export default class ScreenRecordPreviewModal extends React.Component {
@@ -71,38 +71,39 @@ export default class ScreenRecordPreviewModal extends React.Component {
   };
   render() {
     return (
-      <Modal isOpen={this.props.isOpenVideoModal}>
+      <Modal isOpen={this.props.isOpenVideoModal} className="videoheader">
         <ModalHeader
-          className="video__modal__header"
+          className="video__modal__header bg-transparent"
           toggle={this.props.videoModalClose}
         >
-          <button
+          {/* <button
             className="lnr lnr-cross video__modal__clsBtn formModalCloseButton"
             type="button"
             onClick={this.props.videoModalClose}
-          />
-          <span className="bold-text">Preview Screen Record</span>
+          /> */}
+          {/* <span className="bold-text">Preview Screen Record</span> */}
         </ModalHeader>
         <ModalBody>
-          <Row className="downloadButtonAlign">
-            <Button
-              color="primary"
-              outline
-              onClick={this.downloadScreenRecordVideo}
-            >
-              Download
-            </Button>
-          </Row>
           <video
             id="videorecord"
             controls
             // controlsList="nodownload"
             autoPlay={this.state.isLoaded}
             playsInline
-            width={"100%"}
-            height={"100%"}
+            width={"200"}
+            height={"200"}
             src={this.props.recordedVideoUrl}
           />
+          <Row className="downloadButtonAlign">
+            <Button
+              color="primary"
+              outline
+              onClick={this.downloadScreenRecordVideo}
+              className="button" 
+            > 
+              Download
+            </Button>
+          </Row>
         </ModalBody>
       </Modal>
     );
