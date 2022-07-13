@@ -1,4 +1,56 @@
-   .app {
+.sidebar{
+	position: absolute;
+	left :0;
+	width: 250px;
+	height: 100%;
+	background: #f0f0f5;
+	/* background: #042331; */
+}
+.sidebar header {
+	font-size: 22px;
+	color:black;
+	text-align: center;
+	line-height: 75px !important;
+	/* background: #063146; */
+	user-select:none;
+}
+.sidebar ul a{
+	display: block;
+	height:100%;
+	width: 100%;
+	line-height: 65px;
+	font-size: 20px;
+	color:black;
+	padding-left: 40px;
+	box-sizing: border-box;
+	/* border-top:  1px solid gray;
+	border-bottom: 1px solid gray; */
+	list-style: none;
+
+}
+.nav-card{
+	margin :20px;
+}
+.sidebar ul{
+	list-style-type: none;
+}
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { 
+	text-decoration: none; 
+	background-color:#e0e0eb;
+	border-radius: 20px;
+	padding-right: 40px;
+	margin-right: 20px !important;
+ }
+
+
+a:active { text-decoration: none; } 
+.app {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -6,14 +58,15 @@
    }
    .video_Cam{
       margin-top: 50px;
-   
-
+      margin-left: 0px;
+      position: fixed;
+      border-radius: 50%;
    }
-   /* .app__videoFeed{
-      margin-top: 300px;
-      margin-left: 20px;     
+   .app__videoFeed{
+      margin-top: 300px; 
+      margin-left: 20px;      
    
-   } */
+   }
    .button{
       width: 220px;
    }
@@ -27,16 +80,22 @@
    .img{
       text-align: center;
       margin-top: 50px;
+      max-width: 650px;
    }
    .img img{
       width:350px;
    }
   .VideoLoop{
-   margin-top: 0;
-   margin-left: 80px;
+   margin-top:0;
+   width:500px;
+   margin-left: 300px;
+  }
+  .Loop_one{
+   display: flex;
   }
   .VideoLoop video{
-   margin: 10px;
+   margin: 2px;
+ 
   }
 .heading{
    text-align: center;
