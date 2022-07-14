@@ -1,9 +1,9 @@
-import React from 'react' 
+import React from "react";
 import RecordRTC from "recordrtc";
 import ScreenRecordPreviewModal from "./ScreenRecordPreviewModal ";
 import { Button, Col, Container } from "reactstrap";
 import "./App.css";
-import PopUpMenu from "./PopUpMenu"
+import PopUpMenu from "./PopUpMenu";
 let recorder;
 
 class ScreenRecording extends React.Component {
@@ -19,16 +19,13 @@ class ScreenRecording extends React.Component {
       stopDisable: true,
       loadModal: false,
       playing: false,
-      active:false,
+      active: false,
     };
-    this.handleToggleVisibility = this.handleToggleVisibility.bind(this); 
+    this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
     this.state = {
-        visibility: false
+      visibility: false,
     };
-    this.handleToggleButton = this.handleToggleButton.bind(this); 
-    this.state = {
-        visibility: false
-    };
+   
   }
   //to enable audio and video pass true to disable pass false
   captureCamera = (cb) => {
@@ -48,8 +45,8 @@ class ScreenRecording extends React.Component {
           video: true,
         },
         (stream) => {
-          let video = document.getElementsByClassName("app__videoFeed")[0]; 
-          if (video) {  
+          let video = document.getElementsByClassName("app__videoFeed")[0];
+          if (video) {
             video.srcObject = stream;
           }
         },
@@ -168,7 +165,6 @@ class ScreenRecording extends React.Component {
   };
   // stop screen recording
   stop = async () => {
-
     await this.setState({ startDisable: true });
     recorder.stopRecording(this.stopRecordingCallback);
   };
@@ -189,14 +185,14 @@ class ScreenRecording extends React.Component {
       startDisable: false,
       stopDisable: true,
       camera: null,
-      active:false,
+      active: false,
     });
     recorder.screen.stop();
     recorder.destroy();
     recorder = null;
 
     //camera off
-    let video = document.getElementsByClassName("app__videoFeed")[0]; 
+    let video = document.getElementsByClassName("app__videoFeed")[0];
     video.srcObject.getTracks()[0].stop();
   };
   // stop audio recording
@@ -220,11 +216,11 @@ class ScreenRecording extends React.Component {
   // Show Popup Menu
   handleToggleVisibility() {
     this.setState((prevState) => {
-        return {
-            visibility: !prevState.visibility 
-        };
+      return {
+        visibility: !prevState.visibility,
+      };
     });
-}
+  }
   render() {
     window.onbeforeunload = this.openModal;
     return (
@@ -237,7 +233,8 @@ class ScreenRecording extends React.Component {
                   className="m-2"
                   color="primary"
                   onClick={this.handleToggleVisibility}
-                >{this.state.visibility ? 'Stop Recording' : 'Start Recording'} 
+                >
+                  {this.state.visibility ? "Stop Recording" : "Start Recording"}
                 </Button>
                 <Button
                   color="primary"
@@ -258,19 +255,17 @@ class ScreenRecording extends React.Component {
             recorder={this.state.recordPreview}
           />
         </Container>
-      
-          <div className='video_Cam'>
-        <video
-          muted
-          autoPlay
-          className="app__videoFeed"
-          ></video>
+
+        <div className="video_Cam">
+          <video muted autoPlay className="app__videoFeed"></video>
         </div>
-        
-          {
-            this.state.visibility && (
-            <PopUpMenu onClick={() => this.startScreenRecord()} props={this.handleToggleVisibility}/>
-          )}
+
+        {this.state.visibility && (
+          <PopUpMenu
+            onClick={() => this.startScreenRecord()}
+            props={this.handleToggleVisibility}
+          />
+        )}
       </div>
     );
   }
