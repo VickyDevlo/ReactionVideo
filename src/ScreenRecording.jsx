@@ -1,9 +1,11 @@
-  import React from "react";
+  import Form from 'react-bootstrap/Form';
+  import React from 'react'
+  import {HomeRounded } from '@material-ui/icons'
   import RecordRTC from "recordrtc";
   import ScreenRecordPreviewModal from "./ScreenRecordPreviewModal ";
   import { Button, Col, Container } from "reactstrap";
   import "./App.css";
-
+  import PopUpMenu from "./PopUpMenu"
   let recorder;
 
   class ScreenRecording extends React.Component {
@@ -19,6 +21,11 @@
         stopDisable: true,
         loadModal: false,
         playing: false,
+        active:false,
+      };
+      this.handleToggleVisibility = this.handleToggleVisibility.bind(this); 
+      this.state = {
+          visibility: false
       };
     }
     //to enable audio and video pass true to disable pass false
@@ -39,8 +46,8 @@
             video: true,
           },
           (stream) => {
-            let video = document.getElementsByClassName("app__videoFeed")[0];
-            if (video) {
+            let video = document.getElementsByClassName("app__videoFeed")[0]; 
+            if (video) {  
               video.srcObject = stream;
             }
           },
@@ -182,6 +189,7 @@
         startDisable: false,
         stopDisable: true,
         camera: null,
+        active:false,
       });
       recorder.screen.stop();
       recorder.destroy();
@@ -205,6 +213,14 @@
     openModal = async () => {
       await this.setState({ loadModal: false });
     };
+    // Show Popup Menu
+    handleToggleVisibility() {
+      this.setState((prevState) => {
+          return {
+              visibility: !prevState.visibility
+          };
+      });
+  }
     render() {
       const HEIGHT = 200;
       const WIDTH = 200;
@@ -218,10 +234,8 @@
                   <Button
                     className="m-2"
                     color="primary"
-                    onClick={() => this.startScreenRecord()}
-                    disabled={this.state.startDisable}
-                  >
-                    Record a Loom
+                    onClick={this.handleToggleVisibility}
+                  >{this.state.visibility ? 'Start Recording' : 'Start Recording'}
                   </Button>
                   <Button
                     color="primary"
@@ -251,6 +265,9 @@
             className="app__videoFeed"
           ></video>
           </div>
+          {this.state.visibility && (
+        <PopUpMenu onClick={() => this.startScreenRecord()} />
+          )}
         </div>
       );
     }

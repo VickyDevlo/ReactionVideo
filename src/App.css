@@ -56,16 +56,17 @@ a:active { text-decoration: none; }
       justify-content: center;
       align-items: center;
    }
-   .video_Cam{
+   /* .video_Cam{
       margin-top: 50px;
       margin-left: 0px;
       position: fixed;
       border-radius: 50%;
-   }
+   } */
    .app__videoFeed{
-      margin-top: 300px; 
-      margin-left: 20px;      
-   
+      top: 451px;
+      left: 24px;
+      position: fixed;
+      border-radius: 50%;
    }
    .button{
       width: 220px;
@@ -87,11 +88,13 @@ a:active { text-decoration: none; }
    }
   .VideoLoop{
    margin-top:0;
-   width:500px;
    margin-left: 300px;
-  }
-  .Loop_one{
+}
+.Loop_one{
+     width:650px;
+     margin-top: 50px;
    display: flex;
+   margin-left: 150px;
   }
   .VideoLoop video{
    margin: 2px;
@@ -100,4 +103,64 @@ a:active { text-decoration: none; }
 .heading{
    text-align: center;
 }
- 
+
+/* PopUpScreen */
+.Container{
+   pointer-events: all;
+   z-index: 2147483646;
+   transition: right 1s cubic-bezier(0.19, 1, 0.22, 1) 0s, height 0.2s ease-in-out 0s;
+   width: 320px;
+   height: 350px;
+   margin: 20px;
+   border-radius: 13px;
+   top: var(--lns-space-large);
+   right: var(--lns-space-large); 
+   background-color: whitesmoke;
+   position: absolute;
+   top: 95px;
+   left: 1000px;
+}
+.TopNav{
+   display: flex;
+   justify-content: space-between;
+   height: 36px;
+   padding: 10px;
+   width: 300px;
+}
+.VideoSeting{
+   padding: 10px;
+}
+.VideoSeting span{
+   margin-top: 10px;
+}
+.VideoSection{
+   margin-top: 15px;
+}
+.Recording {
+   padding: 10px;
+}
+.section_one{
+   margin-top: 15px;
+}
+.section_two{
+   margin-top: 10px;
+}
+.StartBtn button{
+   border: none;
+   width: 300px;
+   margin: 10px;
+   height: 50px;
+   font-weight: bold;
+   background-color: tomato;
+   color: white;
+   border-radius: 5px;
+}
+ .Show.open{
+  
+      opacity: 1;
+      visibility: visible;
+      z-index: 4;
+      position: fixed;
+      transform: translateX(0);
+  
+ }
