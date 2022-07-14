@@ -76,12 +76,6 @@ export default class ScreenRecordPreviewModal extends React.Component {
           className="video__modal__header bg-transparent"
           toggle={this.props.videoModalClose}
         >
-          {/* <button
-            className="lnr lnr-cross video__modal__clsBtn formModalCloseButton"
-            type="button"
-            onClick={this.props.videoModalClose}
-          /> */}
-          {/* <span className="bold-text">Preview Screen Record</span> */}
         </ModalHeader>
         <ModalBody>
           <video

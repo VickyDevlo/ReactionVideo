@@ -1,4 +1,3 @@
-// https://www.youtube.com/watch?v=ANzPM5-lwXc
 import React, { useEffect, useRef } from "react";
 import "./App.css";
 export default function App() {
@@ -20,13 +19,7 @@ export default function App() {
     <div>
       <div className="VideoLoop">
         <div className="Loop_one">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/St79PuKTFm0"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          />  
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/St79PuKTFm0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </div>
     </div>

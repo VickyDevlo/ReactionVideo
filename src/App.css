@@ -56,17 +56,15 @@ a:active { text-decoration: none; }
       justify-content: center;
       align-items: center;
    }
-   /* .video_Cam{
-      margin-top: 50px;
-      margin-left: 0px;
-      position: fixed;
-      border-radius: 50%;
-   } */
-   .app__videoFeed{
+  .app__videoFeed{
       top: 451px;
       left: 24px;
       position: fixed;
-      border-radius: 50%;
+      border-radius:50%;
+      border: 1px solid transparent !important;
+      width:200px;
+      height: 200px; 
+      object-fit: cover;
    }
    .button{
       width: 220px;

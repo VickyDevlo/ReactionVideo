@@ -166,8 +166,9 @@
     };
     // stop screen recording
     stop = async () => {
+      
       //camera off
-      let video = document.getElementsByClassName("app__videoFeed")[0];
+      let video = document.getElementsByClassName("app__videoFeed")[0]; 
       video.srcObject.getTracks()[0].stop();
       await this.setState({ startDisable: true });
       recorder.stopRecording(this.stopRecordingCallback);
@@ -194,6 +195,7 @@
       recorder.screen.stop();
       recorder.destroy();
       recorder = null;
+
     };
     // stop audio recording
     stopLocalVideos = async (screen, camera) => {
@@ -217,13 +219,11 @@
     handleToggleVisibility() {
       this.setState((prevState) => {
           return {
-              visibility: !prevState.visibility
+              visibility: !prevState.visibility 
           };
       });
   }
     render() {
-      const HEIGHT = 200;
-      const WIDTH = 200;
       window.onbeforeunload = this.openModal;
       return (
         <div>
@@ -258,16 +258,16 @@
           </Container>
           <div className='video_Cam'>
           <video
-            height={HEIGHT}
-            width={WIDTH}
             muted
             autoPlay
             className="app__videoFeed"
           ></video>
           </div>
-          {this.state.visibility && (
-        <PopUpMenu onClick={() => this.startScreenRecord()} />
-          )}
+            {
+              this.state.visibility && (
+                <PopUpMenu onClick={() => this.startScreenRecord()} />
+              )
+            }
         </div>
       );
     }
