@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import React from 'react'
 import {HomeRounded } from '@material-ui/icons'
 import './App.css'
-const PopUpMenu = ({onClick}) => {
+const PopUpMenu = ({onClick, props}) => {
   return (
     <div className='Container'>
         <div className="TopNav">
@@ -41,7 +41,7 @@ const PopUpMenu = ({onClick}) => {
                 </Form.Select>
                 </div>
             </div>
-            <div className="StartBtn">
+            <div className="StartBtn" onClick={props}>
                 <button onClick={onClick}>Start Recording</button>
             </div>
         </div>
