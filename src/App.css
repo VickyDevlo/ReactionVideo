@@ -85,19 +85,34 @@ a:active { text-decoration: none; }
    .img img{
       width:350px;
    }
-  .VideoLoop{
+ 
+ 
+  .VideoContainer{
    margin-top:0;
    margin-left: 300px;
 }
+.VideoContainer video{
+width:100px;
+ margin: 2px;
+
+}
 .Loop_one{
-     width:650px;
-     margin-top: 50px;
-   display: flex;
-   margin-left: 150px;
-  }
-  .VideoLoop video{
-   margin: 2px;
- 
+   position: absolute;
+   top:50px;
+    bottom: 0;
+    right: 375px;
+    padding: 5px 10px;
+    width: min-content;
+    background-color: black;
+    color: white;
+    border-radius: 10px 0 10px 0;
+    content: attr(data-username);
+    height: max-content;
+    line-height: 1.1em;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 2;
+    text-transform: capitalize;
   }
 .heading{
    text-align: center;

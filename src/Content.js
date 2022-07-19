@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./App.css";
-export default function App() {
+
+export default function Video() {
   const videoEl = useRef(null);
 
   const attemptPlay = () => {
@@ -17,7 +18,7 @@ export default function App() {
 
   return (
     <div>
-      <div className="VideoLoop">
+      <div className="VideoContainer">
         <div className="Loop_one">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/St79PuKTFm0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>

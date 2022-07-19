@@ -7,12 +7,11 @@ import PopUpMenu from './PopUpMenu';
 
 export default function App() {  
   return (
- <div className="App">
-   
-      <Navbar/>
-        <Router/>
+ <div className="App"> 
+      {/* <Navbar/> */}
+        {/* <Router/> */}
       <Content/> 
-      <PopUpMenu />
+      {/* <PopUpMenu /> */}
   </div>   
   );
 } 

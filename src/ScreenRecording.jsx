@@ -263,7 +263,7 @@ class ScreenRecording extends React.Component {
         </div>
 
         {this.state.visibility && (       
-           <PopUpMenu onClick={()=>this.startScreenRecord} props={()=>this.handleToggleVisibility}/>
+           <PopUpMenu onClick={this.startScreenRecord} props={this.handleToggleVisibility}/>
          )}
       </div>
     ); 
