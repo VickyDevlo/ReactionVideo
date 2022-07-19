@@ -1,53 +1,96 @@
-import Form from 'react-bootstrap/Form';
-import React from 'react'
-import {HomeRounded } from '@material-ui/icons'
-import './App.css'
-const PopUpMenu = ({onClick, props}) => {
+import { useState } from "react";
+import { HomeRounded } from "@material-ui/icons";
+import GetDevices from "./GetDevices";
+import "./App.css";
+
+const PopUpMenu = ({ onClick, props }) => {
+  const [initialState, setInitialState] = useState(false);
+  const devices = GetDevices();
+  const defaultAudioDevice =
+    devices.audio.find((x) => x.deviceId === "default") || {};
+  const defaultVideoDevice =
+    devices.video.find((x) => x.deviceId === "default") || {};
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    let json = {
+      audioDevice: defaultAudioDevice.deviceId,
+      videoDevice: defaultVideoDevice.deviceId,
+    };
+    formData.forEach((value, key) => {
+      json[key] = value;
+    });
+    setInitialState(json);
+  };
+
   return (
-    <div className='Container'>
-        <div className="TopNav">
+    <div className="Container">
+      <form onSubmit={handleFormSubmit}>
+        <>
+          <div className="TopNav">
             <div className="Logo">
-            <span>Logo</span>
+              <span>Logo</span>
             </div>
             <div className="HomeIcon">
-            <HomeRounded />
+              <HomeRounded />
             </div>
-        </div>
-        <div className="MiddleSection">
-            <div className="VideoSeting">
-                <span>Video Settings</span>
-                <div className='VideoSection'>
+          </div>
 
-                <Form.Select aria-label="Default select example">
-                    <option>Screen and Camera</option>
-                <option value="2">Screen Only</option>
-                <option value="3">Camera Only</option>
-                </Form.Select>
-                </div>
+          <div className="flex flex-col mb-2 AudioLabel">
+            <label className="w-full font-semibold" htmlFor="audioDevice">
+              Audio Setting
+            </label>
+            <div className="relative inline-flex items-center">
+              <select
+                name="audioDevice"
+                id="audioDevice"
+                defaultValue={defaultAudioDevice.deviceId}
+                className="section_two"
+              >
+                {devices.audio.map((audioDevice) => (
+                  <option
+                    key={audioDevice.deviceId}
+                    value={audioDevice.deviceId}
+                  >
+                    {audioDevice.label}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className="Recording">
-                <span>Recording settings</span>
-                <div className='section_one'>
-                <Form.Select aria-label="Default select example">
-                <option>Camera</option>
-                </Form.Select>
-                </div>
+          </div>
+        </>
 
-                <div className='section_two'>
-                <Form.Select aria-label="Default select example">
-                <option>Default - Microphone (Realtek Audio)</option>
-                <option value="2">Communications - Microphone (Realtek Audio)</option>
-                <option value="3">Microphone (Realtek Audio)</option>
-                </Form.Select>
-                </div>
+        <>
+          <div className="flex flex-col mb-2 VideoLabel">
+            <label className="w-full font-semibold" htmlFor="videoDevice">
+              Video Setting
+            </label>
+            <div className="relative inline-flex items-center">
+              <select
+                name="videoDevice"
+                id="videoDevice"
+                defaultValue={defaultVideoDevice.deviceId}
+                className="section_one"
+              >
+                {devices.video.map((videoDevice) => (
+                  <option
+                    key={videoDevice.deviceId}
+                    value={videoDevice.deviceId}
+                  >
+                    {videoDevice.label}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className="StartBtn" onClick={props}>
-                <button onClick={onClick}>Start Recording</button>
-            </div>
-        </div>
-        
+          </div>
+          <div className="StartBtn" onClick={props}>
+            <button onClick={onClick}>Start Recording</button>
+          </div>
+        </>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default PopUpMenu
+export default PopUpMenu;

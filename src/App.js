@@ -5,14 +5,14 @@ import Content from './Content'
 import Navbar from './Components/SideMenu';
 import PopUpMenu from './PopUpMenu';
 
-export default function App() {
+export default function App() {  
   return (
  <div className="App">
- 
-    <Navbar/>
-      <Router/>
-      <Content/>
-      {/* <PopUpMenu /> */}
+   
+      <Navbar/>
+        <Router/>
+      <Content/> 
+      <PopUpMenu />
   </div>   
   );
 } 

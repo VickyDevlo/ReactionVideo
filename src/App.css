@@ -126,23 +126,37 @@ a:active { text-decoration: none; }
    padding: 10px;
    width: 300px;
 }
+.AudioLabel{
+   padding: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: red;
+}
+.VideoLabel{
+   padding: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: red;
+}
 .VideoSeting{
    padding: 10px;
 }
 .VideoSeting span{
-   margin-top: 10px;
+   margin: 10px;
 }
 .VideoSection{
-   margin-top: 15px;
+   margin: 10px;
 }
 .Recording {
    padding: 10px;
 }
 .section_one{
-   margin-top: 15px;
+   margin: 10px;
+   width:300px;
 }
 .section_two{
-   margin-top: 10px;
+   margin: 10px;
+   width: 300px;
 }
 .StartBtn button{
    border: none;
@@ -155,12 +169,12 @@ a:active { text-decoration: none; }
    border-radius: 5px;
 }
  .Show.open{
-  
-      opacity: 1;
-      visibility: visible;
-      z-index: 4;
-      position: fixed;
-      transform: translateX(0);
+
+   opacity: 1;
+   visibility: visible;
+   z-index: 4;
+   position: fixed;
+   transform: translateX(0);
   
  }
  .modal-content{

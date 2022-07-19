@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import RecordRTC from "recordrtc";
 import ScreenRecordPreviewModal from "./ScreenRecordPreviewModal ";
@@ -217,7 +219,7 @@ class ScreenRecording extends React.Component {
   handleToggleVisibility() {
     this.setState((prevState) => {
       return {
-        visibility: !prevState.visibility,
+        visibility: !prevState.visibility
       };
     });
   }
@@ -239,35 +241,32 @@ class ScreenRecording extends React.Component {
                 <Button
                   color="primary"
                   outline
-                  onClick={() => this.stop()}
+                  onClick={() => this.stop()} 
                   disabled={this.state.stopDisable}
                 >
-                  Stop Recording
+                  Stop Recording 
                 </Button>
               </Col>
             </div>
           </div>
-          <ScreenRecordPreviewModal
+          <ScreenRecordPreviewModal              
             isOpenVideoModal={this.state.isOpenVideoModal}
             videoModalClose={this.videoModalClose}
             recordedVideoUrl={this.state.recordedVideoUrl}
             downloadScreenRecordVideo={this.downloadScreenRecordVideo}
-            recorder={this.state.recordPreview}
+            recorder={this.state.recordPreview} 
           />
         </Container>
 
         <div className="video_Cam">
-          <video muted autoPlay className="app__videoFeed"></video>
+          <video muted autoPlay className="app__videoFeed" />
         </div>
 
-        {this.state.visibility && (
-          <PopUpMenu
-            onClick={() => this.startScreenRecord()}
-            props={this.handleToggleVisibility}
-          />
-        )}
+        {this.state.visibility && (       
+           <PopUpMenu onClick={()=>this.startScreenRecord} props={()=>this.handleToggleVisibility}/>
+         )}
       </div>
-    );
+    ); 
   }
-}
-export default ScreenRecording;
+} 
+export default ScreenRecording;  
