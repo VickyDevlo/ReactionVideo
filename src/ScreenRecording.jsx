@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import RecordRTC from "recordrtc";
 import ScreenRecordPreviewModal from "./ScreenRecordPreviewModal ";
@@ -21,14 +19,9 @@ class ScreenRecording extends React.Component {
       stopDisable: true,
       loadModal: false,
       playing: false,
-      active: false,
     };
-    this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
-    this.state = {
-      visibility: false,
-    };
-   
   }
+
   //to enable audio and video pass true to disable pass false
   captureCamera = (cb) => {
     navigator.mediaDevices
@@ -170,6 +163,11 @@ class ScreenRecording extends React.Component {
     await this.setState({ startDisable: true });
     recorder.stopRecording(this.stopRecordingCallback);
   };
+  stopVideo = () => {
+    // setPlaying(false);
+    let video = document.getElementsByClassName("app__videoFeed")[0];
+    video.srcObject.getTracks()[0].stop();
+  };
   //destory screen recording
   stopRecordingCallback = async () => {
     await this.stopLocalVideo(this.state.screen, this.state.camera);
@@ -216,57 +214,65 @@ class ScreenRecording extends React.Component {
     await this.setState({ loadModal: false });
   };
   // Show Popup Menu
-  handleToggleVisibility() {
-    this.setState((prevState) => {
-      return {
-        visibility: !prevState.visibility
-      };
-    });
-  }
+  // handleToggleVisibility() {
+  //   this.setState((prevState) => {
+  //     return {
+  //       visibility: !prevState.visibility
+  //     };
+  //   });
+
+  // }
+  AlertMsg = () => {
+    console.log();
+  };
   render() {
     window.onbeforeunload = this.openModal;
     return (
       <div>
         <Container className="pt-3">
           <div className="centerCard">
-            <div>
-              <Col sm={12} className="text-center">
-                <Button
+            <Col sm={12} className="text-center">
+              {/* <Button
                   className="m-2"
                   color="primary"
-                  onClick={this.handleToggleVisibility}
-                >
-                  {this.state.visibility ? "Stop Recording" : "Start Recording"}
-                </Button>
-                <Button
-                  color="primary"
-                  outline
-                  onClick={() => this.stop()} 
-                  disabled={this.state.stopDisable}
-                >
-                  Stop Recording 
-                </Button>
-              </Col>
-            </div>
+              >
+                  {this.state.visibility ? "Stop Recording" : "Start Recording"} 
+                </Button> */}
+
+              <Button
+                color="primary"
+                outline
+                onClick={() => this.startScreenRecord()}
+                disabled={this.state.startDisable}
+              >
+                Start Recording 
+              </Button>
+              <Button
+                color="primary"
+                outline
+                onClick={() => this.stop()}
+                disabled={this.state.stopDisable}
+              >
+                Stop Recording
+              </Button>
+            </Col>
           </div>
-          <ScreenRecordPreviewModal              
+          <div></div>
+          <ScreenRecordPreviewModal
             isOpenVideoModal={this.state.isOpenVideoModal}
             videoModalClose={this.videoModalClose}
             recordedVideoUrl={this.state.recordedVideoUrl}
             downloadScreenRecordVideo={this.downloadScreenRecordVideo}
-            recorder={this.state.recordPreview} 
+            recorder={this.state.recordPreview}
           />
         </Container>
-
         <div className="video_Cam">
           <video muted autoPlay className="app__videoFeed" />
         </div>
 
-        {this.state.visibility && (       
-           <PopUpMenu onClick={this.startScreenRecord} props={this.handleToggleVisibility}/>
-         )}
+        <PopUpMenu/>
       </div>
-    ); 
+    );
   }
-} 
-export default ScreenRecording;  
+}
+export default ScreenRecording;
