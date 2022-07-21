@@ -202,8 +202,14 @@ class ScreenRecording extends React.Component {
     recorder = null;
 
     //camera off
-    let video = document.getElementsByClassName("app__videoFeed")[0];
-    video.srcObject.getTracks()[0].stop();
+     
+      let video = document.getElementsByClassName("app__videoFeed")[0];
+      video.srcObject.getTracks()[0].stop();
+  
+  };
+  capture = () => {
+    const imageSrc = this.webcam.getScreenshot();
+alert(imageSrc);
   };
   // stop audio recording
   stopLocalVideos = async (screen, camera) => {
@@ -278,7 +284,7 @@ class ScreenRecording extends React.Component {
         <div className="video_Cam">
           <video muted autoPlay className="app__videoFeed" />
         </div>
-        <PopUpMenu/>
+        <PopUpMenu onClick={()=>this.capture}/>
       </div>
     );
   }
