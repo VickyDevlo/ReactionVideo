@@ -111,7 +111,7 @@ a:active { text-decoration: none; }
       text-align: center;
       margin-top: 50px;
       max-width: 650px;
-   }
+   }  
    .img img{
       width:350px;
    }
@@ -141,15 +141,15 @@ width:100px;
     line-height: 1.1em;
     vertical-align: middle;
     text-align: center;
-    z-index: -1;
     text-transform: capitalize;
-  } */
-.Loop_one iframe{
-   width: -webkit-fill-available;  
-   height: -webkit-fill-available; 
-   position: absolute;
-   bottom: 10px;
-   right: 2px;
+   } */
+   .Loop_one iframe{
+      width: -webkit-fill-available;  
+        
+      height: -webkit-fill-available; 
+      position: absolute;
+      bottom: 10px;
+      right: 2px;
   }
 .heading{
    text-align: center;
@@ -157,7 +157,7 @@ width:100px;
 
 /* PopUpScreen */
 .Container{
-   pointer-events: all;
+   pointer-events: all; 
    width: 320px;
    height: 380px;
    margin: 20px;

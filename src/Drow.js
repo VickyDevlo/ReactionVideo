@@ -37,7 +37,7 @@ function Draw() {
   };
   return (
     <div>
-    <Content />
+    {/* <Content /> */}
       <Stage
 
         width={window.innerWidth}
