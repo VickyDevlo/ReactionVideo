@@ -1,10 +1,7 @@
-/* .App{
-   background-image: url("https://www.youtube.com/embed/St79PuKTFm0");  
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   
-} */
+button:is(:disabled){
+   visibility: hidden;
+   position: absolute;
+}
 .sidebar{
 	position: absolute;
 	left :0;
@@ -75,6 +72,31 @@ a:active { text-decoration: none; }
       z-index: 1;
       object-fit: cover;
    }
+   .StartRecBtn{
+      color: white;
+      background-color: black;
+      border: 1px solid black;
+      font-size: 28px;
+      position: absolute;
+      top: 430px;
+      right: 44px;
+      border-radius: 13px;
+      padding: 0px 25px;
+      z-index: 10;
+   }
+   .StopRecBtn{
+      color: white;
+      background-color: black;
+      border: 1px solid black;
+      border-radius: 13px;
+      padding: 0px 25px;
+      font-size: 28px;
+      z-index: 10;
+      position: absolute;
+      top: 430px;
+      right: 49px;
+   }
+    
    .button{
       width: 220px;
    }
@@ -126,7 +148,6 @@ width:100px;
    width: -webkit-fill-available;  
    height: -webkit-fill-available; 
    position: absolute;
-   top: 70px;
    bottom: 10px;
    right: 2px;
   }
@@ -138,7 +159,7 @@ width:100px;
 .Container{
    pointer-events: all;
    width: 320px;
-   height: 350px;
+   height: 380px;
    margin: 20px;
    border-radius: 13px;
    top: var(--lns-space-large);
@@ -147,7 +168,7 @@ width:100px;
    position: absolute;
    top: 95px;
    z-index: 2;
-   left: 1000px;
+   left: 1162px;
 }
 .TopNav{
    display: flex;
@@ -188,7 +209,7 @@ width:100px;
    margin: 10px;
    width: 300px;
 }
-.StartBtn button{
+/* .StartBtn button{
    border: none;
    width: 300px;
    margin: 10px;
@@ -197,20 +218,13 @@ width:100px;
    background-color: tomato;
    color: white;
    border-radius: 5px;
-}
- .Show.open{
+} */
 
-   opacity: 1;
-   visibility: visible;
-   z-index: 4;
-   position: fixed;
-   transform: translateX(0);
-  
+ .PenDrow{
+   position: absolute;
+   top: 10px;
+    
  }
- /* .PenDrow{
-   position: relative;
-   top: -780px;
- } */
  .modal-content{
    position: relative;
    top: 125px;
@@ -226,12 +240,36 @@ width:100px;
    border-radius: 0.3rem;
    outline: 0;
  }
- .Icons{
+ .Icons {
    padding: 16px 33px;
+   margin:10px;
     display: flex;
     flex-flow: row nowrap;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
     justify-content: space-between;
+ }
+ .Icons svg{
+   cursor: pointer;
+ }
+ span :first-child{
+   position: absolute;
+   top: 91px;
+   left: 36px;
+ }
+ .ScreenTag{
+   position: absolute;
+   top: 115px;
+   left: 54px;
+ }
+ .CameraTag{
+   position: absolute;
+   top: 116px;
+    left: 128px;
+ }
+ .BothTag{
+   position: absolute;
+   top: 117px;
+   left: 213px;
  }

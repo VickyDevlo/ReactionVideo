@@ -7,14 +7,16 @@ import Navbar from './Components/SideMenu';
 import PopUpMenu from './PopUpMenu';
 // import Drowing from './Drowing'
 import './App.css'
+ 
 export default function App() {  
   return (
  <div className="App"> 
-    {/* <Navbar/>  */}
-      <Router/>   
+    {/* <Navbar/>    */}
+     <Router/>   
     <Content/> 
-    <PopUpMenu />  
-    <Drow/>
+  <PopUpMenu />  
+    <Drow/> 
+    {/* <ColorPicker /> */}
  
   </div>   
   );

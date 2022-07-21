@@ -52,7 +52,7 @@ function Draw() {
             <Line
               key={i}
               points={line.points}
-              stroke="#f59342"
+              stroke="#fffff"
               strokeWidth={5}
               tension={0.5}
               lineCap="round"
@@ -76,7 +76,7 @@ function Draw() {
         <option value="eraser">Eraser</option>
       </select>
       
-    </div>
+    </div>  
     
 
       
