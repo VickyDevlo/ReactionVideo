@@ -14,6 +14,7 @@ export default function GetDevices() {
       try {
         const cameraPermission = await navigator.permissions.query({ name: "camera" });
         const micPermission = await navigator.permissions.query({ name: "microphone" });
+   
         //toggleLoader()
         if (cameraPermission.state !== "granted" || micPermission.state !== "granted") {
           const stream = await navigator.mediaDevices.getUserMedia({

@@ -1,10 +1,10 @@
 import React from "react";
-// import "../App.css";
+import "./App.css";
 
 const Menu = ({ setLineColor,  
 setLineOpacity }) => {
 return (
-	<div className="Menu">
+	<div className="Menu PenDrow">
 	 
 	<input
 		type="color"

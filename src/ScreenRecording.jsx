@@ -19,7 +19,7 @@ class ScreenRecording extends React.Component {
       stopDisable: true,
       loadModal: false,
       playing: false,
-      visibility: null
+      visibility: null,
     };
   }
 
@@ -33,21 +33,19 @@ class ScreenRecording extends React.Component {
       .then(cb);
   };
   //access your screen width and height  using window object adjusting camera position ,height and width  //after that pass screen and camera to recordrtc/and call startrecording method using recorder object to //start screen recording
+
   startScreenRecord = async () => {
     await this.setState({ stopDisable: false, startDisable: true });
- 
-        this.setState((prevState) => {
-          return {
-            visibility: !prevState.visibility,
-          };
-        });
-        
-        
+
+    this.setState((prevState) => {
+      return {
+        visibility: !prevState.visibility,
+      };
+    });
+
     this.captureScreen((screen) => {
       navigator.getUserMedia(
-        {
-          video: true,
-        },
+        { video: true },
         (stream) => {
           let video = document.getElementsByClassName("app__videoFeed")[0];
           if (video) {
@@ -55,32 +53,31 @@ class ScreenRecording extends React.Component {
           }
         },
         (err) => console.error(err)
-        );
-        this.captureCamera(async (camera) => {
-          screen.width = window.screen.width;
-          screen.height = window.screen.height;
-          screen.fullcanvas = true;
-          camera.width = 320;
-          camera.height = 240;
-          camera.top = screen.height - camera.height;
-          camera.left = screen.width - camera.width;
-          this.setState({
-            screen: screen,
-            camera: camera,
-          });
-          recorder = RecordRTC([screen, camera], {
-            type: "video",
-          });
-          recorder.startRecording();
-          recorder.screen = screen;
+      );
+      this.captureCamera(async (camera) => {
+        screen.width = window.screen.width;
+        screen.height = window.screen.height;
+        screen.fullcanvas = true;
+        camera.width = 320;
+        camera.height = 240;
+        camera.top = screen.height - camera.height;
+        camera.left = screen.width - camera.width;
+        this.setState({
+          screen: screen,
+          camera: camera,
         });
+        recorder = RecordRTC([screen, camera], {
+          type: "mp4",
+        });
+        recorder.startRecording();
+        recorder.screen = screen;
       });
-      
-    };
-    //to capture screen  we need to make sure that which media devices are captured and add listeners to // start and stop stream
-    captureScreen = (callback) => {
-      this.invokeGetDisplayMedia(
-        (screen) => {
+    });
+  };
+  //to capture screen  we need to make sure that which media devices are captured and add listeners to // start and stop stream
+  captureScreen = (callback) => {
+    this.invokeGetDisplayMedia(
+      (screen) => {
         this.addStreamStopListener(screen, () => {});
         callback(screen);
       },
@@ -91,13 +88,13 @@ class ScreenRecording extends React.Component {
         );
         this.setState({ stopDisable: true, startDisable: false });
       }
-      );
-    };
-    // stop screen recording
-    stop = async () => {
-      await this.setState({ startDisable: true });
-      recorder.stopRecording(this.stopRecordingCallback);
-    };
+    );
+  };
+  // stop screen recording
+  stop = async () => {
+    await this.setState({ startDisable: true });
+    recorder.stopRecording(this.stopRecordingCallback);
+  };
   //tracks stop
   stopLocalVideo = async (screen, camera) => {
     [screen, camera].forEach(async (stream) => {
@@ -117,10 +114,10 @@ class ScreenRecording extends React.Component {
     };
     // above constraints are NOT supported YET
     // that's why overridnig them
-    displaymediastreamconstraints = {
-      video: true,
-      audio: true,
-    };
+    // displaymediastreamconstraints = {
+    //   video: true,
+    //   audio: true,
+    // };
     if (navigator.mediaDevices.getDisplayMedia) {
       navigator.mediaDevices
         .getDisplayMedia(displaymediastreamconstraints)
@@ -195,21 +192,20 @@ class ScreenRecording extends React.Component {
       startDisable: false,
       stopDisable: true,
       camera: null,
-      active: false,
+      // active: false,
     });
     recorder.screen.stop();
     recorder.destroy();
     recorder = null;
 
     //camera off
-     
-      let video = document.getElementsByClassName("app__videoFeed")[0];
-      video.srcObject.getTracks()[0].stop();
-  
+
+    let video = document.getElementsByClassName("app__videoFeed")[0];
+    video.srcObject.getTracks()[0].stop();
   };
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
-alert(imageSrc);
+    alert(imageSrc);
   };
   // stop audio recording
   stopLocalVideos = async (screen, camera) => {
@@ -248,18 +244,16 @@ alert(imageSrc);
         <Container className="pt-3">
           <div className="centerCard">
             <Col sm={12} className="text-center">
-            
-
               <button
                 color="primary"
                 outline
                 className="StartRecBtn"
                 onClick={() => this.startScreenRecord()}
                 disabled={this.state.startDisable}
-                >    Start Recording   
-               {/* {this.state.visibility ? "Stop Recording" : "Start Recording"}  */}
-
-
+              >
+                {" "}
+                Start Recording
+                {/* {this.state.visibility ? "Stop Recording" : "Start Recording"}  */}
               </button>
               <button
                 color="primary"
@@ -282,9 +276,9 @@ alert(imageSrc);
           />
         </Container>
         <div className="video_Cam">
-          <video muted autoPlay className="app__videoFeed" />
+          <video autoPlay className="app__videoFeed" />
         </div>
-        <PopUpMenu onClick={()=>this.capture}/>
+        <PopUpMenu />
       </div>
     );
   }

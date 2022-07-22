@@ -172,7 +172,7 @@ a:active {
      position: absolute;
      bottom: 10px;
      right: 2px;
-     z-index: -1;
+     /* z-index: -1; */
  }
 
 iframe {
@@ -254,10 +254,9 @@ iframe {
 }
 
 
-.PenDrow {
-   position: absolute;
-   top: 10px;
-   z-index: 12;
+.PenDrow input{
+   position: relative;
+   top: 50px;
 
 }
 

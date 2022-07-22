@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, ModalBody, ModalHeader, Button, Row } from "reactstrap";
 import RecordRTC from "recordrtc";
-import "./App.css"
+import "./App.css";
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 export default class ScreenRecordPreviewModal extends React.Component {
@@ -20,15 +20,15 @@ export default class ScreenRecordPreviewModal extends React.Component {
     if (isSafari) {
       if (recorderBlob && recorderBlob.getDataURL) {
         recorderBlob.getDataURL(function (dataURL) {
-          RecordRTC.SaveToDisk(dataURL, this.getFileName("mp4"));
+          RecordRTC.SaveToDisk(dataURL, this.getFileName("webm"));
         });
         return;
       }
     }
     if (recorderBlob) {
       var blob = recorderBlob;
-      var file = new File([blob], this.getFileName("mp4"), {
-        type: "video/mp4",
+      var file = new File([blob], this.getFileName("webm"), {
+        type: "video/webm",
       });
       RecordRTC.invokeSaveAsDialog(file);
     }
@@ -75,8 +75,7 @@ export default class ScreenRecordPreviewModal extends React.Component {
         <ModalHeader
           className="video__modal__header bg-transparent"
           toggle={this.props.videoModalClose}
-        >
-        </ModalHeader>
+        ></ModalHeader>
         <ModalBody>
           <video
             id="videorecord"
@@ -93,8 +92,8 @@ export default class ScreenRecordPreviewModal extends React.Component {
               color="primary"
               outline
               onClick={this.downloadScreenRecordVideo}
-              className="button" 
-            > 
+              className="button"
+            >
               Download
             </Button>
           </Row>

@@ -21,6 +21,7 @@ function WebCamera() {
 			},
 			(err) => console.error(err)
 		);
+		
 	};
 
 	const stopVideo = () => {

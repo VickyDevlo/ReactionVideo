@@ -3,14 +3,12 @@ import { HomeRounded } from "@material-ui/icons";
 import GetDevices from "./GetDevices";
 import "./App.css";
 
-const PopUpMenu = ({ onClick }) => {
+const PopUpMenu = ({}) => {
   const [initialState, setInitialState] = useState(false);
 
   const devices = GetDevices();
-  const defaultAudioDevice =
-    devices.audio.find((x) => x.deviceId === "default") || {};
-  const defaultVideoDevice =
-    devices.video.find((x) => x.deviceId === "default") || {};
+  const defaultAudioDevice = devices.audio.find((x) => x.deviceId === "default") || {};
+  const defaultVideoDevice = devices.video.find((x) => x.deviceId === "default") || {};
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +24,7 @@ const PopUpMenu = ({ onClick }) => {
   };
 
   const CameraOn = () => {
+  
     navigator.getUserMedia(
       {
         video: true,
@@ -33,11 +32,15 @@ const PopUpMenu = ({ onClick }) => {
       (stream) => {
         let video = document.getElementsByClassName("app__videoFeed")[0];
         if (video) {
-          video.srcObject = stream;
+          video.srcObject =stream;
         }
       },
       (err) => console.error(err)
     );
+  };
+  const CameraOff = () => {
+    let video = document.getElementsByClassName("app__videoFeed")[0];
+    video.srcObject.getTracks()[0].stop();
   };
 
   return (
@@ -49,7 +52,7 @@ const PopUpMenu = ({ onClick }) => {
               <span>Logo</span>
             </div>
             <div className="HomeIcon">
-              <HomeRounded />
+              <HomeRounded  />
             </div>
           </div>
           <div className="Icons">
@@ -57,7 +60,7 @@ const PopUpMenu = ({ onClick }) => {
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
-              onClick={onClick}
+              onClick={CameraOff}
             >
               <path
                 xmlns="http://www.w3.org/2000/svg"
