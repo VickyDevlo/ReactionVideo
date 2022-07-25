@@ -9,6 +9,7 @@ function App() {
   const [lineWidth, setLineWidth] = useState(5);
   const [lineColor, setLineColor] = useState("black");
   const [lineOpacity, setLineOpacity] = useState(0.1);
+  
 
   // Initialization when the component
   // mounts for the first time
@@ -44,6 +45,7 @@ function App() {
 
     ctxRef.current.stroke();
   };
+  
 
   return (
     <div className="App">
@@ -54,14 +56,18 @@ function App() {
           setLineOpacity={setLineOpacity}
         />
         <canvas
+          className="Canvas"
           onMouseDown={startDrawing}
           onMouseUp={endDrawing}
           onMouseMove={draw}
           ref={canvasRef}
           width={`1280px`}
           height={`720px`}
-        />
         
+          />
+         
+       
+      
       </div>
     </div>
   );

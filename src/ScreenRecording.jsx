@@ -1,9 +1,8 @@
 import React from "react";
 import RecordRTC from "recordrtc";
 import ScreenRecordPreviewModal from "./ScreenRecordPreviewModal ";
-import { Button, Col, Container } from "reactstrap";
+import { Col, Container } from "reactstrap";
 import "./App.css";
-import PopUpMenu from "./PopUpMenu";
 let recorder;
 
 class ScreenRecording extends React.Component {
@@ -25,10 +24,10 @@ class ScreenRecording extends React.Component {
 
   //to enable audio and video pass true to disable pass false
   captureCamera = (cb) => {
-    navigator.mediaDevices
-      .getUserMedia({
+    navigator.mediaDevices.getUserMedia({
         audio: true,
         video: false, //make it true for video
+         
       })
       .then(cb);
   };
@@ -111,12 +110,13 @@ class ScreenRecording extends React.Component {
         logicalSurface: true,
         cursor: "always", // never, always, motion
       },
+      
     };
     // above constraints are NOT supported YET
     // that's why overridnig them
-    // displaymediastreamconstraints = {
+    // var displaymediastreamconstraints = {
     //   video: true,
-    //   audio: true,
+    //   // audio: true,
     // };
     if (navigator.mediaDevices.getDisplayMedia) {
       navigator.mediaDevices
@@ -234,9 +234,7 @@ class ScreenRecording extends React.Component {
   //   });
 
   // }
-  AlertMsg = () => {
-    console.log();
-  };
+
   render() {
     window.onbeforeunload = this.openModal;
     return (
@@ -251,7 +249,6 @@ class ScreenRecording extends React.Component {
                 onClick={() => this.startScreenRecord()}
                 disabled={this.state.startDisable}
               >
-                {" "}
                 Start Recording
                 {/* {this.state.visibility ? "Stop Recording" : "Start Recording"}  */}
               </button>
@@ -278,7 +275,6 @@ class ScreenRecording extends React.Component {
         <div className="video_Cam">
           <video autoPlay className="app__videoFeed" />
         </div>
-        <PopUpMenu />
       </div>
     );
   }
