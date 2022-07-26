@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import Menu from "./Menu";
 import "./App.css";
 
-function App() {
+function ColorDrow() {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [lineWidth, setLineWidth] = useState(2.5);
+  const [lineWidth, setLineWidth] = useState(3);
   const [lineColor, setLineColor] = useState("black");
   const [lineOpacity, setLineOpacity] = useState(1);
 
@@ -59,11 +59,10 @@ function App() {
           ref={canvasRef}
           width={`1520px`}
           height={`730px`}
-          
         />
       </div>
     </div>
   );
 }
 
-export default App;
+export default ColorDrow;
