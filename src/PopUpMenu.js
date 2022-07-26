@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HomeRounded } from "@material-ui/icons";
 import GetDevices from "./GetDevices";
 import "./App.css";
 
-const PopUpMenu = ({ props }) => {
+const PopUpMenu = () => {
   const [initialState, setInitialState] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
@@ -11,7 +11,7 @@ const PopUpMenu = ({ props }) => {
   const StartRecOnlyScreen = () => {
     setDisabled(true);
     let video = document.getElementsByClassName("app__videoFeed")[0];
-    video.srcObject.getTracks()[0].stop();
+    video.srcObject.getTracks()[0].stop().style.Zindex="-1";
   };
 
   //CameraWithScreen

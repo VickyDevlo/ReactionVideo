@@ -44,7 +44,6 @@ class ScreenRecording extends React.Component {
     });
 
     this.captureScreen((screen) => {
-     
       this.captureCamera(async (camera) => {
         screen.width = window.screen.width;
         screen.height = window.screen.height;
@@ -87,7 +86,7 @@ class ScreenRecording extends React.Component {
     recorder.stopRecording(this.stopRecordingCallback);
   };
   //tracks stop
-  stopLocalVideo = async (screen, camera) => {
+  stopLocalVideo = async (screen, camera) => {  
     [screen, camera].forEach(async (stream) => {
       stream.getTracks().forEach(async (track) => {
         track.stop();
@@ -230,7 +229,7 @@ class ScreenRecording extends React.Component {
     window.onbeforeunload = this.openModal;
     return (
       <div>
-        <Container className="pt-3">
+        <Container>
           <div className="centerCard">
             <Col sm={12} className="text-center">
               <button

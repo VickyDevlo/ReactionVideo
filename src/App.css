@@ -86,8 +86,6 @@ a:active {
    z-index: 2;
    object-fit: cover;
 }
- 
-
 
 .StartRecBtn {
    color: white;
@@ -95,11 +93,11 @@ a:active {
    border: 1px solid black;
    font-size: 28px;
    position: absolute;
-   top: 430px;
-   right: 10%;
+   top: 335px;
+   right: 3%;
    border-radius: 13px;
    padding: 0px 25px;
-   z-index: 10;
+   z-index: 3;
 }
 
 .StopRecBtn {
@@ -108,11 +106,11 @@ a:active {
    border: 1px solid black;
    font-size: 28px;
    position: absolute;
-   top: 430px;
-   right: 10%;
+   top: 335px;
+   right: 3%;
    border-radius: 13px;
    padding: 0px 25px;
-   z-index: 10;
+   z-index: 3;
 }
 
 .button {
@@ -201,11 +199,11 @@ a:active {
    border-radius: 13px;
    top: var(--lns-space-large);
    right: var(--lns-space-large);
-   background-color: whitesmoke; 
+   background-color: whitesmoke;
    position: absolute;
-   top: 95px;
+   top: -3px;
    z-index: 2;
-   left: 70%;
+   left: 77%;
 }
 
 .TopNav {
@@ -249,8 +247,9 @@ a:active {
 .section_one {
    margin: 10px;
    width: 300px;
-   
+
 }
+
 .section_two {
    margin: 10px;
    width: 300px;
