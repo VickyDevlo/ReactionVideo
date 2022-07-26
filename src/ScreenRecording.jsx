@@ -42,7 +42,6 @@ class ScreenRecording extends React.Component {
         visibility: !prevState.visibility,
       };
     });
-
     this.captureScreen((screen) => {
       this.captureCamera(async (camera) => {
         screen.width = window.screen.width;
@@ -63,6 +62,7 @@ class ScreenRecording extends React.Component {
         recorder.screen = screen;
       });
     });
+    document.getElementById("PopUpContainer").style.visibility="hidden"
   };
   //to capture screen  we need to make sure that which media devices are captured and add listeners to // start and stop stream
   captureScreen = (callback) => {
@@ -84,6 +84,7 @@ class ScreenRecording extends React.Component {
   stop = async () => {
     await this.setState({ startDisable: true });
     recorder.stopRecording(this.stopRecordingCallback);
+    document.getElementById("PopUpContainer").style.visibility="visible"
   };
   //tracks stop
   stopLocalVideo = async (screen, camera) => {  

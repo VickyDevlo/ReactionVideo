@@ -11,7 +11,7 @@ const PopUpMenu = () => {
   const StartRecOnlyScreen = () => {
     setDisabled(true);
     let video = document.getElementsByClassName("app__videoFeed")[0];
-    video.srcObject.getTracks()[0].stop().style.Zindex="-1";
+    video.srcObject.getTracks()[0].stop().style.Zindex = "-1";
   };
 
   //CameraWithScreen
@@ -65,7 +65,7 @@ const PopUpMenu = () => {
   };
 
   return (
-    <div className="Container">
+    <div id="PopUpContainer">
       <form onSubmit={handleFormSubmit}>
         <>
           <div className="TopNav">

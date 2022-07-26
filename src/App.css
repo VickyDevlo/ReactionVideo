@@ -106,7 +106,7 @@ a:active {
    border: 1px solid black;
    font-size: 28px;
    position: absolute;
-   top: 335px;
+   top: 40px;
    right: 3%;
    border-radius: 13px;
    padding: 0px 25px;
@@ -191,7 +191,7 @@ a:active {
 }
 
 /* PopUpScreen */
-.Container {
+#PopUpContainer {
    pointer-events: all;
    width: 320px;
    height: 380px;
