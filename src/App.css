@@ -95,7 +95,7 @@ a:active {
    font-size: 28px;
    position: absolute;
    top: 430px;
-   right: 35px;
+   right: 10%;
    border-radius: 13px;
    padding: 0px 25px;
    z-index: 10;
@@ -105,13 +105,13 @@ a:active {
    color: white;
    background-color: black;
    border: 1px solid black;
-   border-radius: 13px;
-   padding: 0px 25px;
    font-size: 28px;
-   z-index: 10;
    position: absolute;
    top: 430px;
-   right: 35px;
+   right: 10%;
+   border-radius: 13px;
+   padding: 0px 25px;
+   z-index: 10;
 }
 
 .button {
@@ -204,7 +204,7 @@ a:active {
    position: absolute;
    top: 95px;
    z-index: 2;
-   left: 1162px;
+   left: 70%;
 }
 
 .TopNav {
