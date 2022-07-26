@@ -33,10 +33,10 @@ class ScreenRecording extends React.Component {
       .then(cb);
   };
   //access your screen width and height  using window object adjusting camera position ,height and width  //after that pass screen and camera to recordrtc/and call startrecording method using recorder object to //start screen recording
-  
+
   startScreenRecord = async () => {
     await this.setState({ stopDisable: false, startDisable: true });
-    document.getElementById("Container").style.visibility="hidden"
+    document.getElementById("Container").style.visibility = "hidden";
 
     this.setState((prevState) => {
       return {
@@ -83,11 +83,11 @@ class ScreenRecording extends React.Component {
   // stop screen recording
   stop = async () => {
     await this.setState({ startDisable: true });
-    document.getElementById("Container").style.visibility="visible"
+    document.getElementById("Container").style.visibility = "visible";
     recorder.stopRecording(this.stopRecordingCallback);
   };
   //tracks stop
-  stopLocalVideo = async (screen, camera) => {  
+  stopLocalVideo = async (screen, camera) => {
     [screen, camera].forEach(async (stream) => {
       stream.getTracks().forEach(async (track) => {
         track.stop();
@@ -262,7 +262,7 @@ class ScreenRecording extends React.Component {
             recorder={this.state.recordPreview}
           />
         </Container>
-        <div className="video_Cam">
+        <div id="video_Cam">
           <video autoPlay className="app__videoFeed VideoCam" />
         </div>
       </div>

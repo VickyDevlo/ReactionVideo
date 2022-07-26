@@ -11,7 +11,8 @@ const PopUpMenu = () => {
   const StartRecOnlyScreen = () => {
     setDisabled(true);
     let video = document.getElementsByClassName("app__videoFeed")[0];
-    video.srcObject.getTracks()[0].stop().style.Zindex="-1";
+    video.srcObject.getTracks()[0].stop();
+    document.getElementById("video_Cam").style.display = "none";
   };
 
   //CameraWithScreen
@@ -22,7 +23,7 @@ const PopUpMenu = () => {
       { video: true },
       (stream) => {
         let video = document.getElementsByClassName("app__videoFeed ")[0];
-
+        document.getElementById("video_Cam").style.display = "inline";
         if (video) {
           video.srcObject = stream;
         }
@@ -30,6 +31,7 @@ const PopUpMenu = () => {
       (err) => console.error(err)
     );
   };
+
   //CamreaOnly
   const StartRecCameraOnly = () => {
     setDisabled();
@@ -37,6 +39,7 @@ const PopUpMenu = () => {
       { video: true },
       (stream) => {
         let video = document.getElementsByClassName("app__videoFeed")[0];
+        document.getElementById("video_Cam").style.visibility = "visible";
         if (video) {
           video.srcObject = stream;
         }
