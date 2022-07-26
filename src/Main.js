@@ -6,13 +6,10 @@ function App() {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [lineWidth, setLineWidth] = useState(2);
+  const [lineWidth, setLineWidth] = useState(2.5);
   const [lineColor, setLineColor] = useState("black");
   const [lineOpacity, setLineOpacity] = useState(1);
-  
 
-  // Initialization when the component
-  // mounts for the first time
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -45,7 +42,6 @@ function App() {
 
     ctxRef.current.stroke();
   };
-  
 
   return (
     <div className="App">
@@ -61,13 +57,10 @@ function App() {
           onMouseUp={endDrawing}
           onMouseMove={draw}
           ref={canvasRef}
-          width = {window.innerWidth}
-          height = {window.innerHeight}
-        
-          />
-         
-       
-      
+          width={`1300px`}
+          height={`550px`}
+          
+        />
       </div>
     </div>
   );
