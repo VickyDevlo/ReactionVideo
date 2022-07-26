@@ -33,7 +33,7 @@ export default function Video() {
 
   return (
     <div>
-      <div className="VideoContainer">
+      <div className="VideoContainer" id="PopUpContainer">
         <div className="Loop_one">
           <iframe
             width="560"
