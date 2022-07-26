@@ -6,9 +6,10 @@ function App() {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [lineWidth, setLineWidth] = useState(5);
+  const [lineWidth, setLineWidth] = useState(2);
   const [lineColor, setLineColor] = useState("black");
-  const [lineOpacity, setLineOpacity] = useState(0.1);
+  const [lineOpacity, setLineOpacity] = useState(1);
+  
 
   // Initialization when the component
   // mounts for the first time
@@ -44,11 +45,12 @@ function App() {
 
     ctxRef.current.stroke();
   };
+  
 
   return (
     <div className="App">
       <div className="draw-area">
-        <Menu 
+        <Menu
           setLineColor={setLineColor}
           setLineWidth={setLineWidth}
           setLineOpacity={setLineOpacity}
@@ -59,9 +61,13 @@ function App() {
           onMouseUp={endDrawing}
           onMouseMove={draw}
           ref={canvasRef}
-          width={`1500px`}
-          height={`720px`}
-        />
+          width = {window.innerWidth}
+          height = {window.innerHeight}
+        
+          />
+         
+       
+      
       </div>
     </div>
   );
