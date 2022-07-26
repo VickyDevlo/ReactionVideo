@@ -58,7 +58,7 @@ function App() {
           onMouseMove={draw}
           ref={canvasRef}
           width={`1300px`}
-          height={`550px`}
+          height={`730px`}
           
         />
       </div>
