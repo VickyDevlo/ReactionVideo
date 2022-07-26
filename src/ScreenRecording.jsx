@@ -33,9 +33,10 @@ class ScreenRecording extends React.Component {
       .then(cb);
   };
   //access your screen width and height  using window object adjusting camera position ,height and width  //after that pass screen and camera to recordrtc/and call startrecording method using recorder object to //start screen recording
-
+  
   startScreenRecord = async () => {
     await this.setState({ stopDisable: false, startDisable: true });
+    document.getElementById("Container").style.visibility="hidden"
 
     this.setState((prevState) => {
       return {
@@ -62,7 +63,6 @@ class ScreenRecording extends React.Component {
         recorder.screen = screen;
       });
     });
-    document.getElementById("PopUpContainer").style.visibility="hidden"
   };
   //to capture screen  we need to make sure that which media devices are captured and add listeners to // start and stop stream
   captureScreen = (callback) => {
@@ -83,8 +83,8 @@ class ScreenRecording extends React.Component {
   // stop screen recording
   stop = async () => {
     await this.setState({ startDisable: true });
+    document.getElementById("Container").style.visibility="visible"
     recorder.stopRecording(this.stopRecordingCallback);
-    document.getElementById("PopUpContainer").style.visibility="visible"
   };
   //tracks stop
   stopLocalVideo = async (screen, camera) => {  

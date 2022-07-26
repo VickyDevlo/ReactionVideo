@@ -191,7 +191,7 @@ a:active {
 }
 
 /* PopUpScreen */
-#PopUpContainer {
+#Container {
    pointer-events: all;
    width: 320px;
    height: 380px;
