@@ -3,12 +3,53 @@ import { HomeRounded } from "@material-ui/icons";
 import GetDevices from "./GetDevices";
 import "./App.css";
 
-const PopUpMenu = ({}) => {
+const PopUpMenu = ({ props }) => {
   const [initialState, setInitialState] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+
+  //ScreenOnly
+  const StartRecOnlyScreen = () => {
+    setDisabled(true);
+    let video = document.getElementsByClassName("app__videoFeed")[0];
+    video.srcObject.getTracks()[0].stop();
+  };
+
+  //CameraWithScreen
+  const StartRecWithBoth = () => {
+    setDisabled(false);
+
+    navigator.getUserMedia(
+      { video: true },
+      (stream) => {
+        let video = document.getElementsByClassName("app__videoFeed ")[0];
+
+        if (video) {
+          video.srcObject = stream;
+        }
+      },
+      (err) => console.error(err)
+    );
+  };
+  //CamreaOnly
+  const StartRecCameraOnly = () => {
+    setDisabled();
+    navigator.getUserMedia(
+      { video: true },
+      (stream) => {
+        let video = document.getElementsByClassName("app__videoFeed")[0];
+        if (video) {
+          video.srcObject = stream;
+        }
+      },
+      (err) => console.error(err)
+    );
+  };
 
   const devices = GetDevices();
-  const defaultAudioDevice = devices.audio.find((x) => x.deviceId === "default") || {};
-  const defaultVideoDevice = devices.video.find((x) => x.deviceId === "default") || {};
+  const defaultAudioDevice =
+    devices.audio.find((x) => x.deviceId === "default") || {};
+  const defaultVideoDevice =
+    devices.video.find((x) => x.deviceId === "default") || {};
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -23,26 +64,6 @@ const PopUpMenu = ({}) => {
     setInitialState(json);
   };
 
-  const CameraOn = () => {
-  
-    navigator.getUserMedia(
-      {
-        video: true,
-      },
-      (stream) => {
-        let video = document.getElementsByClassName("app__videoFeed")[0];
-        if (video) {
-          video.srcObject =stream;
-        }
-      },
-      (err) => console.error(err)
-    );
-  };
-  const CameraOff = () => {
-    let video = document.getElementsByClassName("app__videoFeed")[0];
-    video.srcObject.getTracks()[0].stop();
-  };
-
   return (
     <div className="Container">
       <form onSubmit={handleFormSubmit}>
@@ -52,7 +73,7 @@ const PopUpMenu = ({}) => {
               <span>Logo</span>
             </div>
             <div className="HomeIcon">
-              <HomeRounded  />
+              <HomeRounded />
             </div>
           </div>
           <div className="Icons">
@@ -60,7 +81,8 @@ const PopUpMenu = ({}) => {
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
-              onClick={CameraOff}
+              disabled={disabled}
+              onClick={StartRecOnlyScreen}
             >
               <path
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +98,7 @@ const PopUpMenu = ({}) => {
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
-              onClick={CameraOn}
+              onClick={StartRecCameraOnly}
             >
               <path
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,12 +108,12 @@ const PopUpMenu = ({}) => {
               />
             </svg>
             &nbsp;&nbsp;&nbsp;
-            <br />
             <span className="CameraTag">Camera</span>
             <svg
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
+              onClick={StartRecWithBoth}
             >
               <path
                 xmlns="http://www.w3.org/2000/svg"
@@ -140,6 +162,8 @@ const PopUpMenu = ({}) => {
                 id="videoDevice"
                 defaultValue={defaultVideoDevice.deviceId}
                 className="section_one"
+                onChange={StartRecWithBoth}
+                disabled={disabled}
               >
                 {devices.video.map((videoDevice) => (
                   <option

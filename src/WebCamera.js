@@ -4,8 +4,8 @@ import "./App.css";
 function WebCamera() {
   const [playing, setPlaying] = useState(false);
 
-  const HEIGHT = 500;
-  const WIDTH = 500;
+  const HEIGHT = 1000;
+  const WIDTH = 1000;
 
   const startVideo = () => {
     setPlaying(true);

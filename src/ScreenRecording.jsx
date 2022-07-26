@@ -3,6 +3,7 @@ import RecordRTC from "recordrtc";
 import ScreenRecordPreviewModal from "./ScreenRecordPreviewModal ";
 import { Col, Container } from "reactstrap";
 import "./App.css";
+
 let recorder;
 
 class ScreenRecording extends React.Component {
@@ -24,10 +25,10 @@ class ScreenRecording extends React.Component {
 
   //to enable audio and video pass true to disable pass false
   captureCamera = (cb) => {
-    navigator.mediaDevices.getUserMedia({
+    navigator.mediaDevices
+      .getUserMedia({
         audio: true,
         video: false, //make it true for video
-         
       })
       .then(cb);
   };
@@ -43,16 +44,7 @@ class ScreenRecording extends React.Component {
     });
 
     this.captureScreen((screen) => {
-      navigator.getUserMedia(
-        { video: true },
-        (stream) => {
-          let video = document.getElementsByClassName("app__videoFeed")[0];
-          if (video) {
-            video.srcObject = stream;
-          }
-        },
-        (err) => console.error(err)
-      );
+     
       this.captureCamera(async (camera) => {
         screen.width = window.screen.width;
         screen.height = window.screen.height;
@@ -110,7 +102,6 @@ class ScreenRecording extends React.Component {
         logicalSurface: true,
         cursor: "always", // never, always, motion
       },
-      
     };
     // above constraints are NOT supported YET
     // that's why overridnig them
@@ -250,7 +241,6 @@ class ScreenRecording extends React.Component {
                 disabled={this.state.startDisable}
               >
                 Start Recording
-                {/* {this.state.visibility ? "Stop Recording" : "Start Recording"}  */}
               </button>
               <button
                 color="primary"
@@ -273,7 +263,7 @@ class ScreenRecording extends React.Component {
           />
         </Container>
         <div className="video_Cam">
-          <video autoPlay className="app__videoFeed" />
+          <video autoPlay className="app__videoFeed VideoCam" />
         </div>
       </div>
     );

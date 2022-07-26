@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./App.css"; 
+import "./App.css";
 export default function Video() {
   const videoEl = useRef(null);
   let [value, setValue] = useState(true);
@@ -8,18 +8,17 @@ export default function Video() {
     switch (value) {
       case "on":
         value = "off";
-        document.getElementById("can").style.pointerEvents = "none" ;
-        document.getElementById("can").style.zIndex = "-1" 
+        document.getElementById("can").style.pointerEvents = "none";
+        document.getElementById("can").style.zIndex = "-1";
         break;
-        default:
-        
-          value = "on";
-          document.getElementById("can").style.pointerEvents = "unset"; 
-         document.getElementById("can").style.zIndex = "1" 
-         
+      default:
+        value = "on";
+        document.getElementById("can").style.pointerEvents = "unset";
+        document.getElementById("can").style.zIndex = "1";
+
         break;
     }
-  }
+  };
   const attemptPlay = () => {
     videoEl &&
       videoEl.current &&
@@ -36,10 +35,21 @@ export default function Video() {
     <div>
       <div className="VideoContainer">
         <div className="Loop_one">
-        <iframe width="560" id="can" height="315" src="https://www.youtube.com/embed/hXQxSi34GWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+          <iframe
+            width="560"
+            id="can"
+            height="315"
+            src="https://www.youtube.com/embed/hXQxSi34GWY"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
         </div>
-        <button className="ToggleBtn" onClick={drawOnOff}>Click Here</button>
-       </div>
+        <button className="ToggleBtn" onClick={drawOnOff}>
+          Click Here
+        </button>
+      </div>
     </div>
   );
 }
