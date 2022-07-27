@@ -1,18 +1,18 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Router from "./Route";
+import ScreenRecording from "./ScreenRecording";
 import Content from "./Content";
 import PopUpMenu from "./PopUpMenu";
 import Main from "./Main";
-import "./App.css";  
+import "./App.css";
 
 export default function App() {
   return (
     <div className="App">
-    <Main />
+      <ScreenRecording />
+      <PopUpMenu />
       <Content />
-      <Router />
-      <PopUpMenu />   
+      <Main />
     </div>
   );
 }
