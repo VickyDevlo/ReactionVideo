@@ -1,7 +1,3 @@
-button:is(:disabled) {
-   visibility: hidden;
-   position: absolute;
-}
 .app {
    display: flex;
    flex-direction: column;
@@ -55,6 +51,7 @@ button:is(:disabled) {
    margin: 2px;
 
 }
+
 #can {
    width: 100%;
    height: 100vh;
@@ -96,6 +93,38 @@ button:is(:disabled) {
    left: 77%;
 }
 
+.StartRecBtn {
+   color: white;
+   background-color: black;
+   border: 1px solid black;
+   font-size: 28px;
+   position: absolute;
+   top: 335px;
+   right: 3%;
+   border-radius: 13px;
+   padding: 0px 25px;
+   z-index: 3;
+}
+
+.StopRecBtn {
+   width: min-content;
+   color: white;
+   background-color: black;
+   border: 1px solid black;
+   font-size: 20px;
+   position: absolute;
+   top: 40px;
+   right: 1%;
+   border-radius: 13px;
+   padding: 0px 25px;
+   z-index: 3;
+
+}
+/* Disabled Stop Recording Button */
+button:is(:disabled) {
+   visibility: hidden;
+   position: absolute;
+}
 
 .TopNav {
    display: flex;
@@ -144,33 +173,6 @@ button:is(:disabled) {
 .section_two {
    margin: 10px;
    width: 300px;
-}
-.StartRecBtn {
-   color: white;
-   background-color: black;
-   border: 1px solid black;
-   font-size: 28px;
-   position: absolute;
-   top: 335px;
-   right: 3%;
-   border-radius: 13px;
-   padding: 0px 25px;
-   z-index: 3;
-}
-
-.StopRecBtn {
-   width:min-content;
-   color: white;
-   background-color: black;
-   border: 1px solid black;
-   font-size: 20px;
-   position: absolute;
-   top: 40px;
-   right: 1%;
-   border-radius: 13px;
-   padding: 0px 25px;
-   z-index: 3;
-
 }
 
 .PenDrow input {

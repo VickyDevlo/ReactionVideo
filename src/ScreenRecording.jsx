@@ -83,6 +83,8 @@ class ScreenRecording extends React.Component {
   stop = async () => {
     await this.setState({ startDisable: true });
     document.getElementById("Container").style.visibility = "visible";
+
+    document.getElementById("video_Cam").style.display = "none";
     recorder.stopRecording(this.stopRecordingCallback);
   };
   //tracks stop
