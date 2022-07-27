@@ -4,15 +4,15 @@ import Router from "./Route";
 import Content from "./Content";
 import PopUpMenu from "./PopUpMenu";
 import Main from "./Main";
-import "./App.css";
+import "./App.css";  
 
 export default function App() {
   return (
     <div className="App">
-      <Main />
+    <Main />
       <Content />
       <Router />
-      <PopUpMenu />
+      <PopUpMenu />   
     </div>
   );
 }

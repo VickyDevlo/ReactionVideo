@@ -18,8 +18,7 @@ class ScreenRecording extends React.Component {
       startDisable: false,
       stopDisable: true,
       loadModal: false,
-      playing: false,
-      visibility: null,
+      playing: false, 
     };
   }
 
@@ -216,15 +215,6 @@ class ScreenRecording extends React.Component {
   openModal = async () => {
     await this.setState({ loadModal: false });
   };
-  // Show Popup Menu
-  // handleToggleVisibility() {
-  //   this.setState((prevState) => {
-  //     return {
-  //       visibility: !prevState.visibility
-  //     };
-  //   });
-
-  // }
 
   render() {
     window.onbeforeunload = this.openModal;
