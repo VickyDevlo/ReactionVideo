@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; 
+import { useState } from "react"; 
 
 export default function GetDevices() {
   let defaultDevices = {
@@ -6,7 +6,7 @@ export default function GetDevices() {
     video: [],
   };
   const [devices, setDevices] = useState(defaultDevices);
-  useEffect(() => {
+ 
     (async () => {
       if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
         return;
@@ -43,6 +43,6 @@ export default function GetDevices() {
         console.error(err);
       }
     })();
-  }, []);
+  ;
   return devices;
 }

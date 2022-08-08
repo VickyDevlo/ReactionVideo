@@ -18,7 +18,6 @@ class ScreenRecording extends React.Component {
       startDisable: false,
       stopDisable: true,
       loadModal: false,
-      playing: false, 
     };
   }
 
@@ -26,8 +25,8 @@ class ScreenRecording extends React.Component {
   captureCamera = (cb) => {
     navigator.mediaDevices
       .getUserMedia({
-        audio: true,
         video: false, //make it true for video
+        audio: true,
       })
       .then(cb);
   };
@@ -36,27 +35,23 @@ class ScreenRecording extends React.Component {
   startScreenRecord = async () => {
     await this.setState({ stopDisable: false, startDisable: true });
     document.getElementById("Container").style.visibility = "hidden";
+    document.getElementById("StartRecBtn").style.visibility = "hidden";
 
-    this.setState((prevState) => {
-      return {
-        visibility: !prevState.visibility,
-      };
-    });
     this.captureScreen((screen) => {
       this.captureCamera(async (camera) => {
-        screen.width = window.screen.width;
+        screen.width = window.screen.width; 
         screen.height = window.screen.height;
         screen.fullcanvas = true;
         camera.width = 320;
         camera.height = 240;
-        camera.top = screen.height - camera.height;
-        camera.left = screen.width - camera.width;
+        camera.top = camera.height - camera.height;
+        camera.left = camera.width - camera.width;
         this.setState({
           screen: screen,
           camera: camera,
         });
         recorder = RecordRTC([screen, camera], {
-          type: "mp4",
+          type: "video",
         });
         recorder.startRecording();
         recorder.screen = screen;
@@ -83,8 +78,8 @@ class ScreenRecording extends React.Component {
   stop = async () => {
     await this.setState({ startDisable: true });
     document.getElementById("Container").style.visibility = "visible";
-
-    document.getElementById("video_Cam").style.display = "none";
+    document.getElementById("StartRecBtn").style.visibility = "visible";
+    document.getElementById("video_Cam").style.display = "none";  
     recorder.stopRecording(this.stopRecordingCallback);
   };
   //tracks stop
@@ -95,6 +90,7 @@ class ScreenRecording extends React.Component {
       });
     });
   };
+  
   //getting media items
   invokeGetDisplayMedia = (success, error) => {
     var displaymediastreamconstraints = {
@@ -217,7 +213,7 @@ class ScreenRecording extends React.Component {
   openModal = async () => {
     await this.setState({ loadModal: false });
   };
-
+ 
   render() {
     window.onbeforeunload = this.openModal;
     return (
@@ -226,17 +222,15 @@ class ScreenRecording extends React.Component {
           <div className="centerCard">
             <Col sm={12} className="text-center">
               <button
-                color="primary"
                 outline
-                className="StartRecBtn"
+                id="StartRecBtn"
                 onClick={() => this.startScreenRecord()}
                 disabled={this.state.startDisable}
               >
                 Start Recording
               </button>
               <button
-                color="primary"
-                className="StopRecBtn"
+                id="StopRecBtn"
                 outline
                 onClick={() => this.stop()}
                 disabled={this.state.stopDisable}
@@ -245,7 +239,6 @@ class ScreenRecording extends React.Component {
               </button>
             </Col>
           </div>
-          <div></div>
           <ScreenRecordPreviewModal
             isOpenVideoModal={this.state.isOpenVideoModal}
             videoModalClose={this.videoModalClose}

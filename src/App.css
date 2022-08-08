@@ -17,7 +17,57 @@
    object-fit: cover;
 }
 
+#OnlyCam {
+   position: relative;
+   top: -150px;
+   right: 893px;
+   z-index: 32;
+   object-fit: cover;
+}
 
+.CameraRec {
+   position: absolute;
+   top: 50px;
+   right: -376px;
+   border-radius: 37px;
+  
+}
+
+#StartCameraBtn {
+   color: white;
+   background-color: black;
+   border: 1px solid black;
+   font-size: 28px;
+   position: absolute;
+   top: 318px;
+   right: 34.2px;
+   border-radius: 13px;
+   padding: 0px 25px;
+   z-index: 3;
+   visibility: hidden;
+}
+
+#StopCameraBtn {
+   color: white;
+   background-color: black;
+   border: 1px solid black;
+   font-size: 28px;
+   position: absolute;
+   top: 408px;
+   right: 34.2px;
+   border-radius: 13px;
+   padding: 0px 25px;
+   z-index: 3;
+   visibility: hidden;
+}
+
+.VideoDiv {
+   position: absolute;
+   top: 210px;
+   right: 838px;
+   visibility: hidden;
+   z-index: 33;   
+}
 
 .button {
    width: 220px;
@@ -93,7 +143,9 @@
    left: 77%;
 }
 
-.StartRecBtn {
+
+
+#StartRecBtn {
    color: white;
    background-color: black;
    border: 1px solid black;
@@ -104,22 +156,27 @@
    border-radius: 13px;
    padding: 0px 25px;
    z-index: 3;
+   /* visibility: visible; */
 }
 
-.StopRecBtn {
-   width: min-content;
+#StopRecBtn {
+   width: max-content;
+   height: 57px;
    color: white;
    background-color: black;
    border: 1px solid black;
    font-size: 20px;
+   font-weight: bold;
+   letter-spacing: 2px;
    position: absolute;
-   top: 40px;
+   top: 35px;
    right: 1%;
    border-radius: 13px;
    padding: 0px 25px;
    z-index: 3;
 
 }
+
 /* Disabled Stop Recording Button */
 button:is(:disabled) {
    visibility: hidden;
@@ -182,10 +239,6 @@ button:is(:disabled) {
 
 }
 
-.draw-area .Canvas {
-   z-index: auto;
-}
-
 .modal-content {
    position: relative;
    top: 125px;
@@ -217,11 +270,11 @@ button:is(:disabled) {
    cursor: pointer;
 }
 
-span :first-child {
-   position: absolute;
-   top: 91px;
-   left: 36px;
-}
+/* span :first-child {
+         position: absolute;
+         top: 91px;
+         left: 36px;
+      } */
 
 .ScreenTag {
    position: absolute;
