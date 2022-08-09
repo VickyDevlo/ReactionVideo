@@ -19,7 +19,7 @@ const PopUpMenu = () => {
     document.getElementById("StopCameraBtn").style.visibility = "hidden";
     video.srcObject.getTracks()[0].stop();
     document.getElementById("video_Cam").style.display = "none";
-    document.getElementById("StartRecBtn").style.visibility = "visible";
+    document.getElementById("StartRecBtn").style.visibility = "visible";  
   };
 
   //Both
@@ -91,6 +91,17 @@ const PopUpMenu = () => {
     document.getElementById("StartCameraBtn").style.visibility = "visible";
     document.getElementById("videoRec").style.visibility = "visible";
   };
+
+  let Svg = document.querySelectorAll('svg');
+
+  Svg.forEach(button => {
+      button.addEventListener('click', function () {
+          Svg.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');        
+      });
+  });
+  
+  
   return (
     <div id="Container">
       <form onSubmit={handleFormSubmit}>
@@ -105,12 +116,11 @@ const PopUpMenu = () => {
           </div>
           <div id="Icons">
             <svg
-            className="active"
+               className="active"
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
               onClick={StartRecOnlyScreen}
-              
             >
               <path
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +133,7 @@ const PopUpMenu = () => {
             <br />
             <span className="ScreenTag">Screen</span>
             <svg
+              
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
@@ -138,6 +149,7 @@ const PopUpMenu = () => {
             &nbsp;&nbsp;&nbsp;
             <span className="CameraTag">Camera</span>
             <svg
+             
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"

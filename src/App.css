@@ -30,7 +30,7 @@
    top: 50px;
    right: -376px;
    border-radius: 37px;
-  
+
 }
 
 #StartCameraBtn {
@@ -43,7 +43,7 @@
    right: 45.2px;
    border-radius: 13px;
    padding: 0px 25px;
-   z-index: 3; 
+   z-index: 3;
    visibility: hidden;
 }
 
@@ -57,7 +57,7 @@
    right: 45.2px;
    border-radius: 13px;
    padding: 0px 25px;
-   z-index: 3; 
+   z-index: 3;
    visibility: hidden;
 }
 
@@ -66,8 +66,8 @@
    top: 210px;
    right: 838px;
    visibility: hidden;
-   z-index: 33;  
-   
+   z-index: 33;
+
 }
 
 .button {
@@ -157,7 +157,7 @@
    border-radius: 13px;
    padding: 0px 25px;
    z-index: 3;
-   
+
 }
 
 #StopRecBtn {
@@ -270,28 +270,12 @@ button:is(:disabled) {
 #Icons svg {
    cursor: pointer;
 }
- 
-#Icons svg.active{
-   border: 2px solid cyan;
+.active {
+   border: 2px solid violet;
    border-radius: 8px;
-   transform: scale(1.2);
+   transform: scale(1.1);
 }
- 
- /*
- .inactive{
-   padding: 16px 33px;
-   margin: 10px;
-   display: flex;
-   flex-flow: row nowrap;
-   -webkit-box-align: center;
-   align-items: center;
-   -webkit-box-pack: justify;
-   justify-content: space-between;
-
- } */
-
- 
-
+  
 .ScreenTag {
    position: absolute;
    top: 115px;
