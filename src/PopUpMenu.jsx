@@ -52,11 +52,9 @@ const PopUpMenu = () => {
       (stream) => {
         let video = document.getElementsByClassName("CameraRec")[0];
         document.getElementById("StartCameraBtn").style.visibility = "visible";
-        document.getElementById("StopCameraBtn").style.visibility = "visible";
         document.getElementById("OnlyCam").style.display = "inline";
         document.getElementById("video_Cam").style.display = "none";
         document.getElementById("StartRecBtn").style.visibility = "hidden";
-        document.getElementById("videoRec").style.visibility = "visible";
         if (video) {
           video.srcObject = stream;
         }
@@ -83,7 +81,16 @@ const PopUpMenu = () => {
     });
     setInitialState(json);
   };
-
+  const StartBtn = () => {
+    document.getElementById("StopCameraBtn").style.visibility = "visible";
+    document.getElementById("StartCameraBtn").style.visibility = "hidden";
+    document.getElementById("videoRec").style.visibility = "hidden";
+  };
+  const StopBtn = () => {
+    document.getElementById("StopCameraBtn").style.visibility = "hidden";
+    document.getElementById("StartCameraBtn").style.visibility = "visible";
+    document.getElementById("videoRec").style.visibility = "visible";
+  };
   return (
     <div id="Container">
       <form onSubmit={handleFormSubmit}>
@@ -96,13 +103,14 @@ const PopUpMenu = () => {
               <HomeRounded />
             </div>
           </div>
-          <div className="Icons">
+          <div id="Icons">
             <svg
+            className="active"
               fill="currentcolor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 48"
-              disabled={disabled}
               onClick={StartRecOnlyScreen}
+              
             >
               <path
                 xmlns="http://www.w3.org/2000/svg"
@@ -206,14 +214,18 @@ const PopUpMenu = () => {
           video
           render={({ startRecording, stopRecording, mediaBlobUrl }) => (
             <div>
-              <button id="StartCameraBtn" onClick={startRecording}>
-                Start Recording
-              </button>
-
-              <button id="StopCameraBtn" onClick={stopRecording}>
-                Stop Recording
-              </button> 
-
+              <>
+                <div onClick={StartBtn}>
+                  <button id="StartCameraBtn" onClick={startRecording}>
+                    Start Capture
+                  </button>
+                </div>
+                <div onClick={StopBtn}>
+                  <button id="StopCameraBtn" onClick={stopRecording}>
+                    Stop Capture
+                  </button>
+                </div>
+              </>
               <div className="VideoDiv">
                 <video id="videoRec" src={mediaBlobUrl} controls autoPlay />
               </div>
@@ -221,7 +233,7 @@ const PopUpMenu = () => {
           )}
         />
       </div>
-    </div>  
+    </div>
   );
 };
 

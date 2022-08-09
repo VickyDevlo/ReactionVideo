@@ -52,7 +52,7 @@ export default function Video() {
           Click Here
         </button>
       </div>
-       
+        
     </div>
   );
 }

@@ -5,6 +5,8 @@ import Content from "./Content";
 import PopUpMenu from "./PopUpMenu";
 import Main from "./Main";
 import "./App.css"; 
+import Video from "./Video";
+import WebCam from "./WebCam";
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
       <PopUpMenu />
       <Content />
       <Main />  
+      {/* <Video /> */}
+      {/* <WebCam /> */}
    
     </div>
   );

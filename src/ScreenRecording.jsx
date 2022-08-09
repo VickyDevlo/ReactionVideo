@@ -158,8 +158,7 @@ class ScreenRecording extends React.Component {
       this.stop();
     };
   };
-  stopVideo = () => {
-    // setPlaying(false);
+  stopVideo = () => { 
     let video = document.getElementsByClassName("app__videoFeed")[0];
     video.srcObject.getTracks()[0].stop();
   };
@@ -179,15 +178,13 @@ class ScreenRecording extends React.Component {
       isOpenVideoModal: true,
       startDisable: false,
       stopDisable: true,
-      camera: null,
-      // active: false,
+      camera: null, 
     });
     recorder.screen.stop();
     recorder.destroy();
     recorder = null;
 
     //camera off
-
     let video = document.getElementsByClassName("app__videoFeed")[0];
     video.srcObject.getTracks()[0].stop();
   };

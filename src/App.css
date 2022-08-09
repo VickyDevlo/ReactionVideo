@@ -40,10 +40,10 @@
    font-size: 28px;
    position: absolute;
    top: 318px;
-   right: 34.2px;
+   right: 45.2px;
    border-radius: 13px;
    padding: 0px 25px;
-   z-index: 3;
+   z-index: 3; 
    visibility: hidden;
 }
 
@@ -53,11 +53,11 @@
    border: 1px solid black;
    font-size: 28px;
    position: absolute;
-   top: 408px;
-   right: 34.2px;
+   top: 318px;
+   right: 45.2px;
    border-radius: 13px;
    padding: 0px 25px;
-   z-index: 3;
+   z-index: 3; 
    visibility: hidden;
 }
 
@@ -66,7 +66,8 @@
    top: 210px;
    right: 838px;
    visibility: hidden;
-   z-index: 33;   
+   z-index: 33;  
+   
 }
 
 .button {
@@ -156,7 +157,7 @@
    border-radius: 13px;
    padding: 0px 25px;
    z-index: 3;
-   /* visibility: visible; */
+   
 }
 
 #StopRecBtn {
@@ -255,7 +256,7 @@ button:is(:disabled) {
    outline: 0;
 }
 
-.Icons {
+#Icons {
    padding: 16px 33px;
    margin: 10px;
    display: flex;
@@ -266,15 +267,30 @@ button:is(:disabled) {
    justify-content: space-between;
 }
 
-.Icons svg {
+#Icons svg {
    cursor: pointer;
 }
+ 
+#Icons svg.active{
+   border: 2px solid cyan;
+   border-radius: 8px;
+   transform: scale(1.2);
+}
+ 
+ /*
+ .inactive{
+   padding: 16px 33px;
+   margin: 10px;
+   display: flex;
+   flex-flow: row nowrap;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: justify;
+   justify-content: space-between;
 
-/* span :first-child {
-         position: absolute;
-         top: 91px;
-         left: 36px;
-      } */
+ } */
+
+ 
 
 .ScreenTag {
    position: absolute;
