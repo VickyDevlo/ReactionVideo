@@ -20,7 +20,12 @@ class ScreenRecording extends React.Component {
       loadModal: false,
     };
   }
-
+  componentWillMount() {
+    navigator.mediaDevices.getUserMedia({
+      audio: true, 
+      video: true
+        });  
+  }
   //to enable audio and video pass true to disable pass false
   captureCamera = (cb) => {
     navigator.mediaDevices
@@ -39,7 +44,7 @@ class ScreenRecording extends React.Component {
 
     this.captureScreen((screen) => {
       this.captureCamera(async (camera) => {
-        screen.width = window.screen.width; 
+        screen.width = window.screen.width;
         screen.height = window.screen.height;
         screen.fullcanvas = true;
         camera.width = 320;
@@ -79,7 +84,7 @@ class ScreenRecording extends React.Component {
     await this.setState({ startDisable: true });
     document.getElementById("Container").style.visibility = "visible";
     document.getElementById("StartRecBtn").style.visibility = "visible";
-    document.getElementById("video_Cam").style.display = "none";  
+    document.getElementById("video_Cam").style.display = "none";
     recorder.stopRecording(this.stopRecordingCallback);
   };
   //tracks stop
@@ -90,7 +95,7 @@ class ScreenRecording extends React.Component {
       });
     });
   };
-  
+
   //getting media items
   invokeGetDisplayMedia = (success, error) => {
     var displaymediastreamconstraints = {
@@ -158,7 +163,7 @@ class ScreenRecording extends React.Component {
       this.stop();
     };
   };
-  stopVideo = () => { 
+  stopVideo = () => {
     let video = document.getElementsByClassName("app__videoFeed")[0];
     video.srcObject.getTracks()[0].stop();
   };
@@ -178,7 +183,7 @@ class ScreenRecording extends React.Component {
       isOpenVideoModal: true,
       startDisable: false,
       stopDisable: true,
-      camera: null, 
+      camera: null,
     });
     recorder.screen.stop();
     recorder.destroy();
@@ -210,7 +215,7 @@ class ScreenRecording extends React.Component {
   openModal = async () => {
     await this.setState({ loadModal: false });
   };
- 
+
   render() {
     window.onbeforeunload = this.openModal;
     return (

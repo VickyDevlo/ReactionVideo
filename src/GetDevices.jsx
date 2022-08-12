@@ -18,8 +18,8 @@ export default function GetDevices() {
         //toggleLoader()
         if (cameraPermission.state !== "granted" || micPermission.state !== "granted") {
           const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: true,
+            video: false,
+            audio: false,
           });
           if (!stream) {
             return;

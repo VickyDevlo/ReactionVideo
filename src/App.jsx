@@ -4,8 +4,7 @@ import ScreenRecording from "./ScreenRecording";
 import Content from "./Content";
 import PopUpMenu from "./PopUpMenu";
 import Main from "./Main";
-import "./App.css"; 
-import Video from "./Video"; 
+import "./App.css";
 
 export default function App() {
   return (
@@ -13,10 +12,7 @@ export default function App() {
       <ScreenRecording />
       <PopUpMenu />
       <Content />
-      <Main />  
-      {/* <Video /> */}
-       
-   
+      <Main />
     </div>
   );
 }

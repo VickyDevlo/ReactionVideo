@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { useReactMediaRecorder } from "react-media-recorder";
-export default function Video() {
-  const { startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ video: true });
+export default function Video() { 
   const videoEl = useRef(null);
   let [value, setValue] = useState(true);
 

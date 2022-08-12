@@ -4,7 +4,35 @@
    justify-content: center;
    align-items: center;
 }
-
+#startSvg{
+   width: 40px;
+   height: 24px;
+   fill: currentcolor;
+}
+#StopSvg{
+   width: 40px;
+   height: 24px;
+   fill: currentcolor;
+}
+#DeleteSvg{
+   width: 40px;
+   height: 24px;
+   fill: currentcolor;
+}
+#PauseSvg{
+   width: 40px;
+   height: 24px;
+   fill: currentcolor;
+}
+#PlaySvg{
+   width: 40px;
+   height: 24px;
+   fill: currentcolor;
+}
+.stopwatch{
+   border: 1px solid black;
+   display: inline-block;
+}
 .app__videoFeed {
    top: 440px;
    left: 24px;
@@ -67,9 +95,15 @@
    right: 838px;
    visibility: hidden;
    z-index: 33;
-
 }
-
+#videoRec{
+   position: absolute;
+   right: 351px;
+   top: 120px;
+   width: 317px;
+   height: 250px;
+   border-radius: 20px;
+}
 .button {
    width: 220px;
 }
@@ -81,16 +115,7 @@
    top: 185px;
    left: -300px;
 }
-
-.img {
-   text-align: center;
-   margin-top: 50px;
-   max-width: 650px;
-}
-
-.img img {
-   width: 350px;
-}
+ 
 
 .VideoContainer {
    margin-top: 0;
