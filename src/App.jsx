@@ -5,14 +5,16 @@ import Content from "./Content";
 import PopUpMenu from "./PopUpMenu";
 import Main from "./Main";
 import "./App.css";
+import Recordrtc from "./Recordrtc";
 
 export default function App() {
   return (
     <div className="App">
-      <ScreenRecording />
+      {/* <ScreenRecording />
       <PopUpMenu />
       <Content />
-      <Main />
+      <Main /> */}
+      <Recordrtc />
     </div>
   );
 }

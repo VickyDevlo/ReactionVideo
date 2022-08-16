@@ -1,24 +1,27 @@
-import { HomeRounded } from '@material-ui/icons';
-import { useState } from 'react';
-import { ReactMediaRecorder } from 'react-media-recorder';
-import './App.css';
-import GetDevices from './GetDevices';
+import { HomeRounded } from "@material-ui/icons";
+import { useState } from "react";
+import { ReactMediaRecorder } from "react-media-recorder";
+import "./App.css";
+import GetDevices from "./GetDevices";
 
 const PopUpMenu = () => {
   const [initialState, setInitialState] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const [isShown, setIsShown] = useState(false);
 
   const devices = GetDevices();
   const defaultAudioDevice =
-    devices.audio.find((x) => x.deviceId === 'default') || {};
+    devices.audio.find((x) => x.deviceId === "default") || {};
   const defaultVideoDevice =
-    devices.video.find((x) => x.deviceId === 'default') || {};
+    devices.video.find((x) => x.deviceId === "default") || {};
 
-  const [selectedCamera, setSelectedCamera] = useState(defaultVideoDevice.deviceId);
+  const [selectedCamera, setSelectedCamera] = useState(
+    defaultVideoDevice.deviceId
+  );
   const [selectedMic, setSelectedMic] = useState(defaultAudioDevice.deviceId);
 
   const setSelectedDevice = ({ target: { name, value } }) => {
-    if (name === 'audioDevice') {
+    if (name === "audioDevice") {
       setSelectedMic(value);
     } else {
       setSelectedCamera(value);
@@ -35,15 +38,15 @@ const PopUpMenu = () => {
   //ScreenOnly
   const StartRecOnlyScreen = () => {
     setDisabled(true);
-    let video = document.getElementsByClassName('app__videoFeed')[0];
-    document.getElementById('OnlyCam').style.display = 'none';
-    document.getElementById('StartRecBtn').style.visibility = 'visible';
-    document.getElementById('videoRec').style.visibility = 'hidden';
-    document.getElementById('StartCameraBtn').style.visibility = 'hidden';
-    document.getElementById('StopCameraBtn').style.visibility = 'hidden';
+    let video = document.getElementsByClassName("app__videoFeed")[0];
+    document.getElementById("OnlyCam").style.display = "none";
+    document.getElementById("StartRecBtn").style.visibility = "visible";
+    document.getElementById("videoRec").style.visibility = "hidden";
+    document.getElementById("StartCameraBtn").style.visibility = "hidden";
+    document.getElementById("StopCameraBtn").style.visibility = "hidden";
     video.srcObject.getTracks()[0].stop();
-    document.getElementById('video_Cam').style.display = 'none';
-    document.getElementById('StartRecBtn').style.visibility = 'visible';
+    document.getElementById("video_Cam").style.display = "none";
+    document.getElementById("StartRecBtn").style.visibility = "visible";
   };
 
   //Both
@@ -52,14 +55,13 @@ const PopUpMenu = () => {
     navigator.getUserMedia(
       getAudioVideoConstraints(),
       (stream) => {
-        let video = document.getElementsByClassName('app__videoFeed')[0];
-        document.getElementById('OnlyCam').style.display = 'none';
-
-        document.getElementById('StartRecBtn').style.visibility = 'visible';
-        document.getElementById('StopCameraBtn').style.visibility = 'hidden';
-        document.getElementById('StartCameraBtn').style.visibility = 'hidden';
-        document.getElementById('videoRec').style.visibility = 'hidden';
-        document.getElementById('video_Cam').style.display = 'inline';
+        let video = document.getElementsByClassName("app__videoFeed")[0];
+        document.getElementById("OnlyCam").style.display = "none";
+        document.getElementById("StartRecBtn").style.visibility = "visible";
+        document.getElementById("StopCameraBtn").style.visibility = "hidden";
+        document.getElementById("StartCameraBtn").style.visibility = "hidden";
+        document.getElementById("videoRec").style.visibility = "hidden";
+        document.getElementById("video_Cam").style.display = "inline";
         if (video) {
           video.srcObject = stream;
         }
@@ -74,11 +76,11 @@ const PopUpMenu = () => {
     navigator.getUserMedia(
       getAudioVideoConstraints(),
       (stream) => {
-        let video = document.getElementsByClassName('CameraRec')[0];
-        document.getElementById('StartCameraBtn').style.visibility = 'visible';
-        document.getElementById('OnlyCam').style.display = 'inline';
-        document.getElementById('video_Cam').style.display = 'none';
-        document.getElementById('StartRecBtn').style.visibility = 'hidden';
+        let video = document.getElementsByClassName("CameraRec")[0];
+        document.getElementById("StartCameraBtn").style.visibility = "visible";
+        document.getElementById("OnlyCam").style.display = "inline";
+        document.getElementById("video_Cam").style.display = "none";
+        document.getElementById("StartRecBtn").style.visibility = "hidden";
         if (video) {
           video.srcObject = stream;
         }
@@ -99,23 +101,25 @@ const PopUpMenu = () => {
     });
     setInitialState(json);
   };
-  const StartBtn = () => {
-    document.getElementById('StopCameraBtn').style.visibility = 'visible';
-    document.getElementById('StartCameraBtn').style.visibility = 'hidden';
-    document.getElementById('videoRec').style.visibility = 'hidden';
+  const StartBtn = () => { 
+    document.getElementById("StopCameraBtn").style.visibility = "visible";
+    document.getElementById("StartCameraBtn").style.visibility = "hidden";
+    document.getElementById("videoRec").style.visibility = "hidden";
   };
   const StopBtn = () => {
-    document.getElementById('StopCameraBtn').style.visibility = 'hidden';
-    document.getElementById('StartCameraBtn').style.visibility = 'visible';
-    document.getElementById('videoRec').style.visibility = 'visible';
+    setIsShown(true);
+    document.getElementById("StopCameraBtn").style.visibility = "hidden";
+    document.getElementById("StartCameraBtn").style.visibility = "visible";
+    // document.getElementById("videoRec").style.visibility = "visible";
+    document.getElementById("OnlyCam").style.display = "none";
   };
 
   //Add Active class to Svg
-  let Svg = document.querySelectorAll('svg');
+  let Svg = document.querySelectorAll("svg");
   Svg.forEach((button) => {
-    button.addEventListener('click', function () {
-      Svg.forEach((btn) => btn.classList.remove('active'));
-      this.classList.add('active');
+    button.addEventListener("click", function () {
+      Svg.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
     });
   });
 
@@ -166,7 +170,7 @@ const PopUpMenu = () => {
             <span className="CameraTag">Camera</span>
             <svg
               fill="currentcolor"
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="http://www.w3.org/2000/svg"  
               viewBox="0 0 64 48"
               onClick={StartRecWithBoth}
             >
@@ -253,9 +257,11 @@ const PopUpMenu = () => {
                   </button>
                 </div>
               </>
+              {isShown && (
               <div className="VideoDiv">
-                <video id="videoRec" src={mediaBlobUrl} controls autoPlay />
+                <video id="videoRec" src={mediaBlobUrl} controls />
               </div>
+              )}
             </div>
           )}
         />

@@ -5,7 +5,7 @@ import { Col, Container } from "reactstrap";
 import "./App.css";
 
 let recorder;
-
+    
 class ScreenRecording extends React.Component {
   constructor(props) {
     super(props);

@@ -3,6 +3,19 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   margin-top: 20px;
+}
+.App button{
+   margin: 20px;
+   padding: 10px;
+   border: 1px solid rgb(41, 40, 40);
+   border-radius: 7px;
+   background-color: transparent;
+  
+}
+.App button:hover{
+   background-color: black;
+   color: white;
 }
 #startSvg{
    width: 40px;
@@ -93,7 +106,7 @@
    position: absolute;
    top: 210px;
    right: 838px;
-   visibility: hidden;
+   visibility: visible;
    z-index: 33;
 }
 #videoRec{
@@ -101,8 +114,8 @@
    right: 351px;
    top: 120px;
    width: 317px;
-   height: 250px;
-   border-radius: 20px;
+   height: 250px; 
+   border-radius: 20px; 
 }
 .button {
    width: 220px;
