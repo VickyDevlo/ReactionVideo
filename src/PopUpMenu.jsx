@@ -44,8 +44,8 @@ const PopUpMenu = () => {
     document.getElementById("videoRec").style.visibility = "hidden";
     document.getElementById("StartCameraBtn").style.visibility = "hidden";
     document.getElementById("StopCameraBtn").style.visibility = "hidden";
-    video.srcObject.getTracks()[0].stop();
     document.getElementById("video_Cam").style.display = "none";
+    video.srcObject.getTracks()[0].stop();
     document.getElementById("StartRecBtn").style.visibility = "visible";
   };
 
@@ -56,11 +56,11 @@ const PopUpMenu = () => {
       getAudioVideoConstraints(),
       (stream) => {
         let video = document.getElementsByClassName("app__videoFeed")[0];
-        document.getElementById("OnlyCam").style.display = "none";
+        document.getElementById("OnlyCam").style.display = "none";  
         document.getElementById("StartRecBtn").style.visibility = "visible";
         document.getElementById("StopCameraBtn").style.visibility = "hidden";
         document.getElementById("StartCameraBtn").style.visibility = "hidden";
-        document.getElementById("videoRec").style.visibility = "hidden";
+        // document.getElementById("videoRec").style.display = "inline";
         document.getElementById("video_Cam").style.display = "inline";
         if (video) {
           video.srcObject = stream;

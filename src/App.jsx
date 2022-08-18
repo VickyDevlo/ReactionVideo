@@ -10,11 +10,11 @@ import Recordrtc from "./Recordrtc";
 export default function App() {
   return (
     <div className="App">
-      {/* <ScreenRecording />
+      <ScreenRecording />
       <PopUpMenu />
       <Content />
-      <Main /> */}
-      <Recordrtc />
+      <Main />
+      {/* <Recordrtc /> */}
     </div>
   );
 }

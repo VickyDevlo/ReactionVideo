@@ -40,7 +40,7 @@ function Recordrtc() {
   }, [stream, refVideo]);
 
   return (
-    <div className="app">
+    <div className="Rtc_app">
       <header className="App-header">
         <button onClick={StartRec}>Start Recording</button>
         <button onClick={StopRec}>Stop Recording</button>

@@ -5,7 +5,7 @@ import { Col, Container } from "reactstrap";
 import "./App.css";
 
 let recorder;
-    
+
 class ScreenRecording extends React.Component {
   constructor(props) {
     super(props);
@@ -22,18 +22,13 @@ class ScreenRecording extends React.Component {
   }
   componentWillMount() {
     navigator.mediaDevices.getUserMedia({
-      audio: true, 
-      video: true
-        });  
+      audio: true,
+      video: true,
+    });
   }
   //to enable audio and video pass true to disable pass false
   captureCamera = (cb) => {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: false, //make it true for video
-        audio: true,
-      })
-      .then(cb);
+    navigator.mediaDevices.getUserMedia({ video: false, audio: true }).then(cb);
   };
   //access your screen width and height  using window object adjusting camera position ,height and width  //after that pass screen and camera to recordrtc/and call startrecording method using recorder object to //start screen recording
 
@@ -44,8 +39,8 @@ class ScreenRecording extends React.Component {
 
     this.captureScreen((screen) => {
       this.captureCamera(async (camera) => {
-        screen.width = window.screen.width;
-        screen.height = window.screen.height;
+        // screen.width = window.screen.width;
+        // screen.height = window.screen.height;
         screen.fullcanvas = true;
         camera.width = 320;
         camera.height = 240;
@@ -55,7 +50,7 @@ class ScreenRecording extends React.Component {
           screen: screen,
           camera: camera,
         });
-        recorder = RecordRTC([screen, camera], {
+        recorder = RecordRTC([screen], {
           type: "video",
         });
         recorder.startRecording();
@@ -109,7 +104,7 @@ class ScreenRecording extends React.Component {
     // that's why overridnig them
     // var displaymediastreamconstraints = {
     //   video: true,
-    //   // audio: true,
+    //   audio: true,
     // };
     if (navigator.mediaDevices.getDisplayMedia) {
       navigator.mediaDevices
