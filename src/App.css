@@ -1,11 +1,11 @@
-.app {
+.Rtc_app {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    margin-top: 20px;
-}
-.App button{
+}  
+.Rtc_app button{
    margin: 20px;
    padding: 10px;
    border: 1px solid rgb(41, 40, 40);
@@ -13,11 +13,11 @@
    background-color: transparent;
   
 }
-.App button:hover{
+.Rtc_app button:hover{
    background-color: black;
    color: white;
 }
-#startSvg{
+/* #startSvg{
    width: 40px;
    height: 24px;
    fill: currentcolor;
@@ -45,7 +45,7 @@
 .stopwatch{
    border: 1px solid black;
    display: inline-block;
-}
+} */
 .app__videoFeed {
    top: 440px;
    left: 24px;
@@ -54,8 +54,8 @@
    border: 1px solid transparent !important;
    width: 200px;
    height: 200px;
-   z-index: 2;
-   object-fit: cover;
+   z-index: 33;
+   object-fit: cover; 
 }
 
 #OnlyCam {
@@ -63,14 +63,14 @@
    top: -150px;
    right: 893px;
    z-index: 32;
-   object-fit: cover;
+   object-fit: cover;   
 }
 
 .CameraRec {
    position: absolute;
    top: 50px;
    right: -376px;
-   border-radius: 37px;
+   border-radius: 37px; 
 
 }
 
